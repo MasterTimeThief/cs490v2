@@ -10,4 +10,18 @@ class Includes_Requests_Classes extends Includes_Requests_Abstract
 	{
 		
 	}
+	
+	public function getClasses()
+	{
+		$url = ENDPOINT . '/get_classes';
+		$response = parent::request($url, '','GET, null');
+		return $response;
+	}
+	
+	public function getClassById($id)
+	{
+		$url = ENDPOINT . '/get_class_by_id/' . $id;
+		$response = parent::request($url, '','GET, null');
+		return $response;
+	}
 }

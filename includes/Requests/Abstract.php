@@ -83,7 +83,7 @@ abstract class Includes_Requests_Abstract
 		// Options
 		curl_setopt($curl, CURLOPT_URL, $url); // URL
 		curl_setopt($curl, CURLOPT_HEADER, TRUE);
-		curl_setopt($curl, CURLOPT_HTTPHEADER, $header); // HEADER
+		//curl_setopt($curl, CURLOPT_HTTPHEADER, $header); // HEADER
 		curl_setopt($curl, CURLOPT_HTTP_VERSION, 1.1); // HTTP Version
 		curl_setopt($curl,CURLOPT_RETURNTRANSFER, TRUE);
 		 
@@ -112,7 +112,6 @@ abstract class Includes_Requests_Abstract
 		$response = curl_exec($curl);
 		$headerSize = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
 		curl_close($curl);
-
 		$this->_response['header'] = substr($response, 0, $headerSize);
 		$this->_response['body'] = substr($response, $headerSize);
 		return $this->_response;

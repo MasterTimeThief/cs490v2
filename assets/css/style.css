@@ -101,9 +101,14 @@ padding:10px 15px 15px 15px; margin:0px 0 15px 10px;
 float: left;
 width: 100%;
 }
-#right_content{
+<!-- #right_content{
 margin:10px 10px 10px 232px;
+} -->
+
+#right_content{
+	margin:10px 10px 10px 10px;
 }
+
 .form_sub_buttons{ padding:0 0 20px 0; float:left;}
 #right_content h2{ background-color:#bad7e6;
 margin:0px; clear:both;
