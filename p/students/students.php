@@ -6,6 +6,8 @@
 	$api = Includes_Requests_Factory::create('students',array());
 	$students = $api->getStudents();
 	$studentsArray = json_decode($students['body'],true);
+	dd($studentsArray);
+	exit;
 ?>
 
 <div id="right_wrap">

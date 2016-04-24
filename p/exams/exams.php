@@ -4,7 +4,7 @@
 <h2>Exams</h2>
 <?php 
 	$api = Includes_Requests_Factory::create('exams',array());
-	$exams = $api->getExams();
+	$exams = $api->getExamsByProfessorId(1); // Todo
 	$examsArray = json_decode($exams['body'],true);
 ?>
 
@@ -15,10 +15,11 @@
 <table id="rounded-corner">
     <thead>
     	<tr>
-            <th>Class Code</th>
-            <th>Exam Title</th>
-            <th>Category</th>
-            <th>Status</th>
+            <th>Id</th>
+            <th>Class CODE</th>
+            <th>Class Title</th>
+			<th>Exam Title</th>
+            <th>Exam Status</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -33,10 +34,11 @@
     <?php foreach($examsArray['data'] as $id=>$item):?>
 		<?php $class = ($counter % 2) ? 'even' : 'odd';?>
     	<tr class="<?=$class?>">
+            <td><?=$item['id']?></td>
             <td><?=$item['code']?></td>
+            <td><?=$item['class_title']?></td>
             <td><?=$item['title']?></td>
-            <td><?=$item['category']?></td>
-            <td><?=$item['status']?></td>
+            <td><?=($item['is_available']) ? 'Open' : 'Closed'?></td>
             <td><a href="<?=BASE_URL?>p/exams/edit_exam.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
             <td><a href="#"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
 		</tr>

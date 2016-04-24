@@ -20,12 +20,12 @@
 	<div class="form">
 		<div class="form_row">
 		<label>Exam Title:</label>
-		<input type="text" class="form_input" name="code" id="code" value=""/>
+		<input type="text" class="form_input" name="title" id="title" value=""/>
 		</div>
 		
 		<div class="form_row">
 			<label>Class:</label>
-			<select class="form_select" name="class">
+			<select class="form_select" name="class_id">
 				<?php foreach($classesArray['data'] as $id=>$item):?>
 				<option value="<?=$item['id']?>"><?=$item['code']?> - <?=$item['title']?></option>
 				<?php endforeach;?>
@@ -34,14 +34,14 @@
 		
 		<div class="form_row">
 			<label>Status:</label>
-			<select class="form_select" name="status">
-				<option value="open"   >Open</option>
-				<option value="closed" >Closed</option>
+			<select class="form_select" name="is_available">
+				<option value="1"   >Open</option>
+				<option value="1" >Closed</option>
 			</select>
 		</div>
 
 		<div class="form_row">
-			<input type="hidden" class="form_input" name="id" id="id" value="1"/>
+			<input type="hidden" class="form_input" name="professor_id" id="professor_id" value="1"/> <!-- @todo -->
 		</div>
 		<div class="form_row">
 		<input type="submit" class="form_submit" value="Submit" />
