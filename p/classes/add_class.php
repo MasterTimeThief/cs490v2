@@ -5,13 +5,20 @@
 <?php 
 	$api = Includes_Requests_Factory::create('categories',array());
 	$data = $api->getCategories();
-	$categoriesArray = json_decode($data['body'],true);;
+	$categoriesArray = json_decode($data['body'],true);
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		$api = Includes_Requests_Factory::create('classes',array());
+		$res = $api->addClass($_POST);
+		$msg->success('Record Updated');
+		header('Location: ' .BASE_URL . '/p/classes/classes.php');
+	}
+	
 ?>
 
 <div id="right_wrap">
     <div id="right_content">             
     	<h2>Add Class</h2>
-    		<form name="edit_class" method="post" action="">
+    		<form name="add_class" method="post" action="">
 		    	<div class="form">
 		            <div class="form_row">
 		            <label>Code:</label>
@@ -35,13 +42,9 @@
 		            <div class="form_row">
 			            <label>Status:</label>
 			            <select class="form_select" name="status">
-							<option value="open"   >Open</option>
+							<option value="open">Open</option>
 			            	<option value="closed">Closed</option>
 			            </select>
-		            </div>
-
-		            <div class="form_row">
-		            	<input type="hidden" class="form_input" name="id" id="id" value="1"/>
 		            </div>
 		            <div class="form_row">
 		            <input type="submit" class="form_submit" value="Submit" />
@@ -51,10 +54,4 @@
         	</form>
     </div>
 </div>
-
-
-
-
-
-
 <?php require_once '../../template/footer.php'; ?>

@@ -32,6 +32,12 @@ class Includes_Requests_Classes extends Includes_Requests_Abstract
 		return $response;
 	}
 	
+	public function addClass($data)
+	{
+		$url = ENDPOINT . '/add_class';
+		$response = parent::request($url, array() ,'POST', $data);
+		return $response;
+	}
 	public function deleteClassById($id)
 	{
 		$url = ENDPOINT . '/delete_class';
