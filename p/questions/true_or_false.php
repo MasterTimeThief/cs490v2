@@ -14,7 +14,7 @@
 <div id="right_wrap">
     <div id="right_content">             
     	<h2>Fill In The Blank</h2>
-		<form name="add_true_or_false" method="post" action="">
+		<form name="add_true_or_false" id="true_or_false" method="post" action="">
 			<div class="form">
 				<div class="form_row">
 				<label>Question:</label>
