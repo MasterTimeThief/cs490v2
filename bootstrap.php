@@ -11,7 +11,7 @@ require_once 'includes/Requests/Exams.php';
 require_once 'includes/Requests/Questions.php';
 require_once 'includes/Requests/Students.php';
 require_once 'includes/Requests/Factory.php';
-require_once 'includes/Environment.php';
+//require_once 'includes/Environment.php';
 
 $menuObject = new Main_Menu();
 $menu = $menuObject->get_menu();
