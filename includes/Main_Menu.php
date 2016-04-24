@@ -42,10 +42,6 @@ class Main_Menu
 										'url'=>BASE_URL . '/p/classes/add_class.php'
 								),
 								array(
-										'name'=>'Edit Class',
-										'url'=>BASE_URL . '/p/classes/edit_class.php'
-								),
-								array(
 										'name'=>'Cancelled Class',
 										'url'=>BASE_URL . '/p/classes/cancelled_classes.php'
 								),

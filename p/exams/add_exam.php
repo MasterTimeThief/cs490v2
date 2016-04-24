@@ -6,6 +6,12 @@
 	$api = Includes_Requests_Factory::create('classes',array());
 	$classes = $api->getClasses();
 	$classesArray = json_decode($classes['body'],true);
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		$api = Includes_Requests_Factory::create('exams',array());
+		$res = $api->addExam($_POST);
+		$msg->success('Record Updated');
+		header('Location: ' .BASE_URL . '/p/exams/exams.php');
+	}
 ?>
 
 <div id="right_wrap"><div id="right_content">
@@ -17,17 +23,9 @@
 		<input type="text" class="form_input" name="code" id="code" value=""/>
 		</div>
 		
-		<!--<div class="form_row">
-			<label>Class:</label>
-			<select name="classes" class="classes" id="classes">
-				<option value="">-- Select-- </option>
-			</select>
-		</div>-->
-		
-		
 		<div class="form_row">
 			<label>Class:</label>
-			<select class="form_select" name="category_id">
+			<select class="form_select" name="class">
 				<?php foreach($classesArray['data'] as $id=>$item):?>
 				<option value="<?=$item['id']?>"><?=$item['code']?> - <?=$item['title']?></option>
 				<?php endforeach;?>
@@ -38,7 +36,7 @@
 			<label>Status:</label>
 			<select class="form_select" name="status">
 				<option value="open"   >Open</option>
-				<option value="closed"  selected>Closed</option>
+				<option value="closed" >Closed</option>
 			</select>
 		</div>
 

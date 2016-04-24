@@ -14,18 +14,14 @@
 
 	$api = Includes_Requests_Factory::create('categories',array());
 	$data = $api->getCategories();
-	$categoriesArray = json_decode($data['body'],true);;
+	$categoriesArray = json_decode($data['body'],true);
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$api = Includes_Requests_Factory::create('classes',array());
 		$res = $api->updateClass($_POST);
 		$resArray = json_decode($res['body'],true);
-		//header('Location: '.$_SERVER['PHP_SELF']);
-		//die;
-		//dd($resArray);
 		$msg->success('Record Updated');
 	}
-
 ?>
 
 <div id="right_wrap">
@@ -65,7 +61,7 @@
 		            	<input type="hidden" class="form_input" name="id" id="id" value="<?=$classArray['data']['id']?>"/>
 		            </div>
 		            <div class="form_row">
-		            <input type="submit" class="form_submit" value="Submit" />
+		            <input type="submit" class="form_submit" value="Update" />
 		            </div> 
 		            <div class="clear"></div>
 		        </div>
