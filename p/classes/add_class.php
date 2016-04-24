@@ -1,7 +1,12 @@
 <?php session_start();?>
 <?php require_once '../../bootstrap.php'; ?>
-
 <?php require_once '../../template/header.php'; ?>
+
+<?php 
+	$api = Includes_Requests_Factory::create('categories',array());
+	$data = $api->getCategories();
+	$categoriesArray = json_decode($data['body'],true);;
+?>
 
 <div id="right_wrap">
     <div id="right_content">             
@@ -21,22 +26,15 @@
 		            <div class="form_row">
 			            <label>Category:</label>
 			            <select class="form_select" name="category_id">
-							<option value="" selected>-- Select-- </option>
-							<option value="1" >CS - Computer Science</option>
-							<option value="2" >IT - Information Technology</option>
-							<option value="3" >CIS - Civil Engineering</option>
-							<option value="4" >CHEM - Chemistry</option>
-							<option value="5" >ECON - Economics</option>
-							<option value="6" >ENG - English</option>
-							<option value="7" >HIST - History</option>
-							<option value="8" >FIN - Finance</option>
-						</select>
+			            	<?php foreach($categoriesArray['data'] as $id=>$item):?>
+			            	<option value="<?=$item['id']?>"><?=$item['code']?> - <?=$item['title']?></option>
+			            	<?php endforeach;?>
+			            </select>
 		            </div>
 		            
 		            <div class="form_row">
 			            <label>Status:</label>
 			            <select class="form_select" name="status">
-			            	<option value=""  selected>-- Select-- </option>
 							<option value="open"   >Open</option>
 			            	<option value="closed">Closed</option>
 			            </select>
