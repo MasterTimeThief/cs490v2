@@ -2,46 +2,67 @@
 <?php require_once '../../bootstrap.php'; ?>
 <?php require_once '../../template/header.php'; ?>
 
+<?php 
+	$api = Includes_Requests_Factory::create('classes',array());
+	if(empty($_GET['class_id'])){
+		header('Location: ' . BASE_URL . '/p/classes/classes.php' ) ;
+	}
+	$class_id = $_GET['class_id'];
+	
+	$data = $api->getClassById($class_id);
+	$classArray = json_decode($data['body'],true);
+
+	$api = Includes_Requests_Factory::create('categories',array());
+	$data = $api->getCategories();
+	$categoriesArray = json_decode($data['body'],true);;
+
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		$api = Includes_Requests_Factory::create('classes',array());
+		$res = $api->updateClass($_POST);
+		$resArray = json_decode($res['body'],true);
+		//header('Location: '.$_SERVER['PHP_SELF']);
+		//die;
+		//dd($resArray);
+		$msg->success('Record Updated');
+	}
+
+?>
+
 <div id="right_wrap">
+	<p><?=$msg->display();?></p>
     <div id="right_content">             
     	<h2>Edit Class</h2>
     		<form name="edit_class" method="post" action="">
 		    	<div class="form">
-		            
 		            <div class="form_row">
 		            <label>Code:</label>
-		            <input type="text" class="form_input" name="code" id="code" value="CS100"/>
+		            <input type="text" class="form_input" name="code" id="code" value="<?=$classArray['data']['code']?>"/>
 		            </div>
 		             
 		            <div class="form_row">
 		            <label>Title:</label>
-		            <input type="text" class="form_input" name="title" id="title" value="ROADMAP TO COMPUTING"/>
+		            <input type="text" class="form_input" name="title" id="title" value="<?=$classArray['data']['title']?>"/>
 		            </div>
 		            
 		            <div class="form_row">
 			            <label>Category:</label>
 			            <select class="form_select" name="category_id">
-			            				            	<option value="1"  selected>CS - Computer Science</option>
-			            				            	<option value="2" >IT - Information Technology</option>
-			            				            	<option value="3" >CIS - Civil Engineering</option>
-			            				            	<option value="4" >CHEM - Chemistry</option>
-			            				            	<option value="5" >ECON - Economics</option>
-			            				            	<option value="6" >ENG - English</option>
-			            				            	<option value="7" >HIST - History</option>
-			            				            	<option value="8" >FIN - Finance</option>
-			            				            </select>
+			            	<?php foreach($categoriesArray['data'] as $id=>$item):?>
+			            	<option value="<?=$item['id']?>" <?=($item['id']==$classArray['data']['category_id']) ? ' selected' :''?>><?=$item['code']?> - <?=$item['title']?></option>
+			            	<?php endforeach;?>
+			            </select>
 		            </div>
 		            
 		            <div class="form_row">
 			            <label>Status:</label>
 			            <select class="form_select" name="status">
-			            	<option value="open"    selected>Open</option>
-			            	<option value="closed" >Closed</option>
+			            	<option value="open"   <?=($classArray['data']['status']=='open')   ? ' selected': ''?>>Open</option>
+			            	<option value="closed" <?=($classArray['data']['status']=='closed') ? ' selected': ''?>>Closed</option>
 			            </select>
 		            </div>
 
 		            <div class="form_row">
-		            	<input type="hidden" class="form_input" name="class_id" id="class_id" value="1"/>
+		            	<input type="hidden" class="form_input" name="id" id="id" value="<?=$classArray['data']['id']?>"/>
 		            </div>
 		            <div class="form_row">
 		            <input type="submit" class="form_submit" value="Submit" />
@@ -51,17 +72,4 @@
         	</form>
     </div>
 </div>
-
-
-<div class="clear"></div>
-    </div> <!--end of center_content-->
-    
-    <div class="footer">
-			<center><p><strong>2016</strong></p></center>
-</div>
-
-</div>
-
-    	
-</body>
-</html>
+<?php require_once '../../template/footer.php'; ?>
