@@ -9,41 +9,45 @@ class Main_Menu
 		$this->_ProfessorsMenu = array(
 				'index' => array(
 						'name'=>'Index',
-						'url'=>'/~wad3/p/index.php',
+						'url'=> BASE_URL . '/p/index/index.php',
 						'links'=>array(
 								array(
 										'name'=>'Home',
-										'url'=>'/~wad3/p/index/index.php'
+										'url'=>BASE_URL . '/p/index/index.php'
 								),
 								array(
 										'name'=>'Settings',
-										'url'=>'/~wad3/p/index/settings.php'
+										'url'=>BASE_URL . '/p/index/settings.php'
 								),
 								array(
 										'name'=>'Users',
-										'url'=>'/~wad3/p/index/users.php'
+										'url'=>BASE_URL . '/p/index/users.php'
 								),
 								array(
 										'name'=>'Categories',
-										'url'=>'/~wad3/p/index/categories.php'
+										'url'=>BASE_URL . '/p/index/categories.php'
 								),
 						)
 				),
 				'classes' => array(
 						'name'=>'Classes',
-						'url'=>'/~wad3/p/classes/classes.php',
+						'url'=>BASE_URL . '/p/classes/classes.php',
 						'links'=>array(
 								array(
 										'name'=>'Classes',
-										'url'=>'/~wad3/p/classes/classes.php'
+										'url'=>BASE_URL . '/p/classes/classes.php'
 								),
 								array(
 										'name'=>'Add Class',
-										'url'=>'/~wad3/p/classes/add_class.php'
+										'url'=>BASE_URL . '/p/classes/add_class.php'
+								),
+								array(
+										'name'=>'Edit Class',
+										'url'=>BASE_URL . '/p/classes/edit_class.php'
 								),
 								array(
 										'name'=>'Cancelled Class',
-										'url'=>'/~wad3/p/classes/cancelled_classes.php'
+										'url'=>BASE_URL . '/p/classes/cancelled_classes.php'
 								),
 								
 						)
@@ -52,59 +56,59 @@ class Main_Menu
 
 				'students' => array(
 						'name'=>'Students',
-						'url'=>'/~wad3/p/students/students.php',
+						'url'=>BASE_URL . '/p/students/students.php',
 						'links'=>array(
 								array(
 										'name'=>'Students',
-										'url'=>'/~wad3/p/students/students.php'
+										'url'=>BASE_URL . '/p/students/students.php'
 								),
 								array(
 										'name'=>'Add Student',
-										'url'=>'/~wad3/p/students/add_student.php'
+										'url'=>BASE_URL . '/p/students/add_student.php'
 								),
 						)
 				),
 				'exams' => array(
 						'name'=>'Exams',
-						'url'=>'/~wad3/p/exams/exams.php',
+						'url'=>BASE_URL . '/p/exams/exams.php',
 						'links'=>array(
 								array(
 										'name'=>'Exams',
-										'url'=>'/~wad3/p/exams/exams.php'
+										'url'=>BASE_URL . '/p/exams/exams.php'
 								),
 								array(
 										'name'=>'Add Exam',
-										'url'=>'/~wad3/p/exams/add_exam.php'
+										'url'=>BASE_URL . '/p/exams/add_exam.php'
 								),
 						)
 				),
 				
 				'questions' => array(
 						'name'=>'Questions',
-						'url'=>'/~wad3/p/questions/questions.php',
+						'url'=>BASE_URL . '/p/questions/questions.php',
 						'links'=>array(
 								array(
 										'name'=>'Questions',
-										'url'=>'/~wad3/p/questions/questions.php'
+										'url'=>BASE_URL . '/p/questions/questions.php'
 								),
 								array(
 										'name'=>'True or False',
-										'url'=>'/~wad3/p/questions/true_or_false.php'
+										'url'=>BASE_URL . '/p/questions/true_or_false.php'
 								),
 								
 								array(
 										'name'=>'Multiple Choice',
-										'url'=>'/~wad3/p/questions/multiple_choice.php'
+										'url'=>BASE_URL . '/p/questions/multiple_choice.php'
 								),
 								
 								array(
 										'name'=>'Fill in the Blanks',
-										'url'=>'/~wad3/p/questions/fill_in_the_blanks.php'
+										'url'=>BASE_URL . '/p/questions/fill_in_the_blanks.php'
 								),
 								
 								array(
 										'name'=>'Short Answer',
-										'url'=>'/~wad3/p/questions/short_answer.php'
+										'url'=>BASE_URL . '/p/questions/short_answer.php'
 								),
 						)
 				),

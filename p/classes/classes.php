@@ -9,6 +9,7 @@
 ?>
 
 <div id="right_wrap">
+<?=$msg->display()?>
     <div id="right_content">             
     <h2>Available classes</h2> 
 
@@ -37,8 +38,8 @@
             <td><?=$item['title']?></td>
             <td><?=$item['category']?></td>
             <td><?=$item['status']?></td>
-            <td><a href="<?=BASE_URL?>p/classes/edit_class.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
+            <td><a href="<?=BASE_URL?>/p/classes/edit_class.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
+            <td><a href="<?=BASE_URL?>/p/classes/delete_class.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
 		</tr>
 		<?php $counter+=1;?>
   <?php endforeach; ?>

@@ -28,6 +28,9 @@ class Includes_Requests_Factory
 			case 'index':
 				$request = new Includes_Requests_Index($options);
 				break;
+			case 'categories':
+				$request = new Includes_Requests_Categories($options);
+				break;
 			default:
 				break;
 		}

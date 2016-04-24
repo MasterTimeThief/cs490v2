@@ -31,7 +31,7 @@ $parent = $menuObject->get_parent($page);
 	<div class="header">
     <div class="title"><a href="/~wad3/p/index/index.php">Online Exam System</a></div>
     
-    <div class="header_right">Welcome Admin, <a href="~wad3/p/index/settings.php" class="settings">Settings</a> <a href="#" class="logout">Logout</a> </div>
+    <div class="header_right"><!-- Welcome, --><a href="<?=BASE_URL?>logout.php" class="logout">Logout</a> </div>
     <?php if(!empty($menu)):?>
 	<div class="menu">
     	<ul>
