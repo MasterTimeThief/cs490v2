@@ -7,7 +7,6 @@
 	$exams = $api->getExams();
 	$examsArray = json_decode($exams['body'],true);
 ?>
-<?php require_once '../../template/footer.php'; ?>
 
 <div id="right_wrap">
     <div id="right_content">             
