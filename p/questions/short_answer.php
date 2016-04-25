@@ -18,7 +18,7 @@
 			<div class="form">
 				<div class="form_row">
 				<label>Question:</label>
-				<input type="text" class="form_input" name="code" id="code" value=""/>
+				<input type="text" class="form_input" name="question" id="code" value=""/>
 				</div>
 				 
 				<div class="form_row">
