@@ -38,6 +38,7 @@
 				</div>
 
 				<div class="form_row">
+				<input type="hidden" class="form_submit" name="role" id="role" value="student" />
 				<input type="submit" class="form_submit" value="Submit" />
 				</div> 
 				<div class="clear"></div>
