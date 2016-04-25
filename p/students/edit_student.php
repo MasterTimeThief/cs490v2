@@ -11,10 +11,7 @@
 	
 	$data = $api->getStudentById($student_id);
 	$studentArray = json_decode($data['body'],true);
-
-	$api = Includes_Requests_Factory::create('classes',array());
-	$data = $api->getClasses();
-	$classesArray = json_decode($data['body'],true);
+	dd($studentArray);
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$api = Includes_Requests_Factory::create('students',array());
@@ -25,35 +22,36 @@
 ?>
 
 <div id="right_wrap">
-    <div id="right_content">             
-    	<h2>Edit Students</h2>
-    		<form name="add_class" method="post" action="">
-		    	<div class="form">
-		            <div class="form_row">
-		            <label>Student Name:</label>
-		            <input type="text" class="form_input" name="name" id="name" value=""/>
-		            </div>
-		             
-		            <div class="form_row">
-		            <label>UCID:</label>
-		            <input type="text" class="form_input" name="ucid" id="ucid" value=""/>
-		            </div>
-		            
-		            <div class="form_row">
-						<label>Class:</label>
-						<select class="form_select" name="class">
-							<?php foreach($classesArray['data'] as $id=>$item):?>
-							<option value="<?=$item['id']?>"><?=$item['code']?> - <?=$item['title']?></option>
-							<?php endforeach;?>
-						</select>
-					</div>
-		            
-		            <div class="form_row">
-		            <input type="submit" class="form_submit" value="Update" />
-		            </div> 
-		            <div class="clear"></div>
-		        </div>
-        	</form>
-    </div>
+	<div id="right_content">             
+	<h2>Add Students</h2>
+		<form name="add_class" method="post" action="">
+			<div class="form">
+				<div class="form_row">
+				<label>First Name:</label>
+				<input type="text" class="form_input" name="first_name" id="first_name" value="<?//=$studentArray['first_name']?>"/>
+				</div>
+
+				<div class="form_row">
+				<label>Last Name:</label>
+				<input type="text" class="form_input" name="last_name" id="last_name" value=""/>
+				</div>
+				 
+				<div class="form_row">
+				<label>Email:</label>
+				<input type="text" class="form_input" name="email" id="email" value=""/>
+				</div>
+				
+				<div class="form_row">
+				<label>Password:</label>
+				<input type="password" class="form_input" name="password" id="password" value=""/>
+				</div>
+
+				<div class="form_row">
+				<input type="submit" class="form_submit" value="Submit" />
+				</div> 
+				<div class="clear"></div>
+			</div>
+		</form>
+	</div>
 </div>
 <?php require_once '../../template/footer.php'; ?>
