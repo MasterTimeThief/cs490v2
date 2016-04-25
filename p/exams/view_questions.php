@@ -22,6 +22,7 @@
 					<th>No.</th>
 					<th>Question</th>
 					<th>Question Type</th>
+					<th>View</th>
 					<th>Delete</th>
 				</tr>
 			</thead>
@@ -45,6 +46,7 @@
 			
 			</tbody>
 		</table>
+		
 		<div class="clear"></div>
 	</div>
 </div>
