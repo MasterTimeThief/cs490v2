@@ -24,4 +24,11 @@ class Includes_Requests_Questions extends Includes_Requests_Abstract
 		$response = parent::request($url, '','GET', null);
 		return $response;
 	}
+	
+	public function addQuestion($data)
+	{
+		$url = ENDPOINT . '/add_question';
+		$response = parent::request($url, '','POST', $data);
+		return $response;
+	}
 }

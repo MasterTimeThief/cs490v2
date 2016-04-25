@@ -4,8 +4,8 @@
 
 <?php 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-		$api = Includes_Requests_Factory::create('fill_in_the_blanks',array());
-		$res = $api->addFillInTheBlanks($_POST);
+		$api = Includes_Requests_Factory::create('questions',array());
+		$res = $api->addQuestion($_POST);
 		$msg->success('Record Updated');
 		header('Location: ' .BASE_URL . '/p/questions/questions.php');
 	}
@@ -23,7 +23,9 @@
 				 
 				<div class="form_row">
 				<label>Answer:</label>
-				<input type="text" class="form_input" name="answer" id="answer" value=""/>
+				<input type="text" class="form_input" name="answer_1" id="answer_1" value=""/>
+				<input type="text" name="question_type" id="question_type" value="fill_in_the_blanks"/>
+				<input type="text" name="professor_id" id="professor_id" value="1"/> <!--  todo  -->
 				</div>
 
 				<div class="form_row">
