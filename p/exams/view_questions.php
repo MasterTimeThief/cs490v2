@@ -4,14 +4,14 @@
 
 <?php
 	$api = Includes_Requests_Factory::create('exams',array());
-	if(empty($_GET['student_id'])){
+	if(empty($_GET['exam_id'])){
 		header('Location: ' . BASE_URL . '/p/exams/exams.php' ) ;
 	}
-	$exam_id = $_GET['student_id'];
-	
+	$examId = $_GET['exam_id'];
 	$api = Includes_Requests_Factory::create('questions',array());
-	$data = $api->getQuestions();
+	$data = $api->getQuestionsByExamId($examId);
 	$questionsArray = json_decode($data['body'],true);
+
 ?>
 <div id="right_wrap">
 	<div id="right_content">
@@ -38,7 +38,7 @@
 					<td><?=$item['id']?></td>
 					<td><?=$item['question']?></td>
 					<td><?=$item['question_type']?></td>
-					<td><a href="<?=BASE_URL?>/p/questions/delete_question.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
+					<td><a href="<?=BASE_URL?>/p/questions/delete_question.php?class_id=<?=$item['exam_question_id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
 				</tr>
 				<?php $counter+=1;?>
 			<?php endforeach; ?>

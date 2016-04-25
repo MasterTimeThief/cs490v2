@@ -25,6 +25,13 @@ class Includes_Requests_Questions extends Includes_Requests_Abstract
 		return $response;
 	}
 	
+	public function getQuestionsByExamId($id)
+	{
+		$url = ENDPOINT . '/get_questions_by_exam_id/' . $id;
+		$response = parent::request($url, '','GET', null);
+		return $response;
+	}
+	
 	public function addQuestion($data)
 	{
 		$url = ENDPOINT . '/add_question';
