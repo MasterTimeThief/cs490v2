@@ -16,63 +16,18 @@
 	$api = Includes_Requests_Factory::create('classes',array());
 	$data = $api->getClasses();
 	$classesArray = json_decode($data['body'],true);
-	
-	$api = Includes_Requests_Factory::create('questions',array());
-	$questions = $api->getQuestions();
-	$questionsArray = json_decode($questions['body'],true);
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$api = Includes_Requests_Factory::create('exams',array());
 		$res = $api->updateExam($_POST);
 		$resArray = json_decode($res['body'],true);
 		$msg->success('Record Updated');
+		header('Location: ' . BASE_URL . '/p/exams/exams.php');
 	}
 ?>
 
 <div id="right_wrap">
 	<div id="right_content">
-	<h2>Edit Exam</h2>
-	
-	<div class="toogle_wrap">
-		<div class="trigger">
-			<a href="#">Question Bank</a>
-		</div>
-
-		<div class="toggle_container">
-			<p>
-			<table id="rounded-corner">
-				<thead>
-					<tr>
-						<th></th>
-						<th>No.</th>
-						<th>Question</th>
-						<th>Question Type</th>
-					</tr>
-				</thead>
-					<tfoot>
-					<tr>
-						<td colspan="12"></td>
-					</tr>
-				</tfoot>
-				<tbody>
-				<?php $counter = 0; ?>
-				<?php foreach($questionsArray['data'] as $id=>$item):?>
-					<?php $class = ($counter % 2) ? 'even' : 'odd';?>
-					<tr class="<?=$class?>">
-						<td><input type="checkbox" name="add_question" id="add_question" /></td>
-						<td><?=$item['id']?></td>
-						<td><?=$item['question']?></td>
-						<td><?=$item['question_type']?></td>
-					</tr>
-					<?php $counter+=1;?>
-				<?php endforeach; ?>
-				
-				</tbody>
-			</table>
-			</p>
-		</div>
-	</div>
-	
 	<form name="add_exam" method="post" action="">
 		<div class="form">
 			<div class="form_row">
@@ -99,6 +54,7 @@
 
 			<div class="form_row">
 				<input type="hidden" class="form_input" name="professor_id" id="professor_id" value="1"/> <!-- @todo -->
+				<input type="hidden" class="form_input" name="id" id="id" value="<?=$_GET['exam_id']?>"/>
 			</div>
 			<div class="form_row">
 			<input type="submit" class="form_submit" value="Submit" />

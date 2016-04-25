@@ -38,4 +38,11 @@ class Includes_Requests_Exams extends Includes_Requests_Abstract
 		$response = parent::request($url, '','POST', $data);
 		return $response;
 	}
+	
+	public function updateExam($data)
+	{
+		$url = ENDPOINT . '/update_exam';
+		$response = parent::request($url, '','POST', $data);
+		return $response;
+	}
 }
