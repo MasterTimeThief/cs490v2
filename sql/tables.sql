@@ -39,7 +39,7 @@ CREATE TABLE `questions` (
   `answer_3` varchar(255) DEFAULT NULL,
   `answer_4` varchar(255) DEFAULT NULL,
   `answer_5` varchar(255) DEFAULT NULL,
-  `question_type` enum('true_or_false','multiple_choice','fill_in_the_blanks','short_essay') DEFAULT NULL,
+  `question_type` enum('true_or_false','multiple_choice','fill_in_the_blanks','short_answer') DEFAULT NULL,
   `is_true` enum('0','1') DEFAULT '0',
   `which_is_correct` enum('1','2','3','4','5') DEFAULT NULL,
   `extra_data` varchar(255) DEFAULT NULL,

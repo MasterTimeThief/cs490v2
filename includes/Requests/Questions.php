@@ -10,4 +10,18 @@ class Includes_Requests_Questions extends Includes_Requests_Abstract
 	{
 	
 	}
+	
+	public function getQuestions()
+	{
+		$url = ENDPOINT . '/get_questions';
+		$response = parent::request($url, '','GET', null);
+		return $response;
+	}
+	
+	public function getQuestionById($id)
+	{
+		$url = ENDPOINT . '/get_question_by_id/' . $id;
+		$response = parent::request($url, '','GET', null);
+		return $response;
+	}
 }

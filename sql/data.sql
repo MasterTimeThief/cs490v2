@@ -41,17 +41,17 @@ INSERT INTO `exams`(`professor_id`,`class_id`,`title`,`is_available`)
             
 
 INSERT INTO `questions` VALUES 
-	(1,1,'Is php an object oriented language?',NULL,NULL,NULL,NULL,NULL,'true_or_false','1',NULL,NULL),
-    (2,1,'when was php created?','1994','1927','6758','67678','7867','multiple_choice','0','1',NULL),
-    (3,1,'create a funciton that returns summation of two numbers?','function add($a,$b){\nreturn $a+b}',NULL,NULL,NULL,NULL,'short_essay','0',NULL,NULL),
-    (4,1,'Linux Torvals created ___','Linux',NULL,NULL,NULL,NULL,'fill_in_the_blanks','1','1',NULL),
-    (14,1,'This question is for a TEST EXAM',NULL,NULL,NULL,NULL,NULL,'true_or_false','1',NULL,NULL),
-    (16,1,'For years, the preferred model for software development was the _______ method.','waterfall',NULL,NULL,NULL,NULL,'fill_in_the_blanks','1','1',NULL),
-    (17,1,'How would you make a C program that prints out 5 items in testArray?','for (i = 0; i < 5; i++)\n{\n    printf(testArray[i]);\n}',NULL,NULL,NULL,NULL,'short_essay','0',NULL,NULL),
-    (18,1,'What symbol would you use to denote a pointer?','^','$','*','&','@','multiple_choice','0','3',NULL),
-    (20,1,'The MyISAM database engine supports transactions.',NULL,NULL,NULL,NULL,NULL,'true_or_false','0',NULL,NULL),
-    (21,1,'This class uses _____ to learn about programming.','Python',NULL,NULL,NULL,NULL,'fill_in_the_blanks','1','1',NULL),
-    (22,1,'C was invented in the year ____','1970',NULL,NULL,NULL,NULL,'fill_in_the_blanks','1','1',NULL),
-    (23,1,'Create a simple Hello World function','echo \"Hello World!\"',NULL,NULL,NULL,NULL,'short_essay','0',NULL,NULL),
-    (24,1,'What is an example of a high level language?','1','2','3','4','5','multiple_choice','0','4',NULL),
-    (25,1,'NJIT teaches a course in PHP',NULL,NULL,NULL,NULL,NULL,'true_or_false','0',NULL,NULL);
+	(1,3,'Is php an object oriented language?',NULL,NULL,NULL,NULL,NULL,'true_or_false','1',NULL,NULL),
+    (2,3,'when was php created?','1994','1927','6758','67678','7867','multiple_choice','0','1',NULL),
+    (3,3,'create a funciton that returns summation of two numbers?','function add($a,$b){\nreturn $a+b}',NULL,NULL,NULL,NULL,'short_answer','0',NULL,NULL),
+    (4,3,'Linux Torvals created ___','Linux',NULL,NULL,NULL,NULL,'fill_in_the_blanks','1','1',NULL),
+    (14,3,'This question is for a TEST EXAM',NULL,NULL,NULL,NULL,NULL,'true_or_false','1',NULL,NULL),
+    (16,3,'For years, the preferred model for software development was the _______ method.','waterfall',NULL,NULL,NULL,NULL,'fill_in_the_blanks','1','1',NULL),
+    (17,3,'How would you make a C program that prints out 5 items in testArray?','for (i = 0; i < 5; i++)\n{\n    printf(testArray[i]);\n}',NULL,NULL,NULL,NULL,'short_answer','0',NULL,NULL),
+    (18,3,'What symbol would you use to denote a pointer?','^','$','*','&','@','multiple_choice','0','3',NULL),
+    (20,3,'The MyISAM database engine supports transactions.',NULL,NULL,NULL,NULL,NULL,'true_or_false','0',NULL,NULL),
+    (21,3,'This class uses _____ to learn about programming.','Python',NULL,NULL,NULL,NULL,'fill_in_the_blanks','1','1',NULL),
+    (22,3,'C was invented in the year ____','1970',NULL,NULL,NULL,NULL,'fill_in_the_blanks','1','1',NULL),
+    (23,3,'Create a simple Hello World function','echo \"Hello World!\"',NULL,NULL,NULL,NULL,'short_answer','0',NULL,NULL),
+    (24,3,'What is an example of a high level language?','1','2','3','4','5','multiple_choice','0','4',NULL),
+    (25,3,'NJIT teaches a course in PHP',NULL,NULL,NULL,NULL,NULL,'true_or_false','0',NULL,NULL);

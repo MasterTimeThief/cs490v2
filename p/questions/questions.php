@@ -8,6 +8,7 @@
 	$api = Includes_Requests_Factory::create('questions',array());
 	$questions = $api->getQuestions();
 	$questionsArray = json_decode($questions['body'],true);
+	//dd($questionsArray);
 ?>
 
 <div id="right_wrap">
@@ -20,7 +21,7 @@
 					<th>No.</th>
 					<th>Question</th>
 					<th>Question Type</th>
-					<!--<th>Edit</th>-->
+					<th>Edit</th>
 					<th>Delete</th>
 				</tr>
 			</thead>
@@ -37,8 +38,8 @@
 					<td><?=$item['id']?></td>
 					<td><?=$item['question']?></td>
 					<td><?=$item['question_type']?></td>
-					<!--<td><a href="<?=BASE_URL?>/p/questions/edit_question.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>-->
-					<td><a href="<?=BASE_URL?>/p/questions/delete_question.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
+					<td><a href="<?=BASE_URL?>/p/questions/edit_question.php?question_id=<?=$item['id']?>&question_type=<?=$item['question_type']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
+					<td><a href="<?=BASE_URL?>/p/questions/delete_question.php?question_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
 				</tr>
 				<?php $counter+=1;?>
 			<?php endforeach; ?>
