@@ -46,6 +46,16 @@ CREATE TABLE `questions` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
+
+DROP TABLE IF EXISTS `exam_has_questions`;
+CREATE TABLE `exam_has_questions`
+(
+	`id` INT NOT NULL AUTO_INCREMENT,
+    `exam_id` INT NOT NULL,
+    `question_id` INT NOT NULL,
+    PRIMARY KEY(`id`)
+)Engine='InnoDb';
+
 select * from categories;
 select * from classes;
 select * from exams;

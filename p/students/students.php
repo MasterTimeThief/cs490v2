@@ -6,8 +6,6 @@
 	$api = Includes_Requests_Factory::create('students',array());
 	$students = $api->getStudents();
 	$studentsArray = json_decode($students['body'],true);
-	dd($studentsArray);
-	exit;
 ?>
 
 <div id="right_wrap">
@@ -17,10 +15,11 @@
 		<table id="rounded-corner">
 			<thead>
 				<tr>
-					<th>Student Name</th>
-					<th>Student UCID</th>
-					<th>Taken Class</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
 					<th>Edit</th>
+					<th>View Exams</th>
 					<th>Delete</th>
 				</tr>
 			</thead>
@@ -34,11 +33,12 @@
 			<?php foreach($studentsArray['data'] as $id=>$item):?>
 				<?php $class = ($counter % 2) ? 'even' : 'odd';?>
 				<tr class="<?=$class?>">
-					<td><?=$item['name']?></td>
-					<td><?=$item['ucid']?></td>
-					<td><?=$item['class']?></td>
-					<td><a href="<?=BASE_URL?>/p/students/edit_student.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
-					<td><a href="<?=BASE_URL?>/p/students/delete_student.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
+					<td><?=$item['first_name']?></td>
+					<td><?=$item['last_name']?></td>
+					<td><?=$item['email']?></td>
+					<td><a href="<?=BASE_URL?>/p/students/edit_student.php?students_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
+					<td><a href="<?=BASE_URL?>/p/students/view_exams.php?students_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
+					<td><a href="<?=BASE_URL?>/p/students/delete_student.php?students_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
 				</tr>
 				<?php $counter+=1;?>
 			<?php endforeach; ?>

@@ -24,8 +24,8 @@
 				<div class="form_row">
 				<label>Answer:</label>
 				<input type="text" class="form_input" name="answer_1" id="answer_1" value=""/>
-				<input type="text" name="question_type" id="question_type" value="fill_in_the_blanks"/>
-				<input type="text" name="professor_id" id="professor_id" value="1"/> <!--  todo  -->
+				<input type="hidden" name="question_type" id="question_type" value="fill_in_the_blanks"/>
+				<input type="hidden" name="professor_id" id="professor_id" value="1"/> <!--  todo  -->
 				</div>
 
 				<div class="form_row">

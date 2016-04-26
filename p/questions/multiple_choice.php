@@ -13,7 +13,7 @@
 
 <div id="right_wrap">
     <div id="right_content">             
-    	<h2>Fill In The Blank</h2>
+    	<h2>Multiple Choice</h2>
 		<form name="add_multiple_choice" id="multiple_choice" method="post" action="">
 			<div class="form">
 				<div class="form_row">
@@ -52,8 +52,8 @@
 				</div>
 
 				<div class="form_row">
-				<input type="text" name="question_type" id="question_type" value="multiple_choice"> 
-				<input type="text" name="professor_id" id="professor_id" value="1"> <!--  todo -->
+				<input type="hidden" name="question_type" id="question_type" value="multiple_choice"> 
+				<input type="hidden" name="professor_id" id="professor_id" value="1"> <!--  todo -->
 				<input type="submit" class="form_submit" value="Submit" />
 				</div> 
 				<div class="clear"></div>
