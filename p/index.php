@@ -1,1 +1,2 @@
-<?php header('Location: index/index.php'); ?>
+<?php header('Location: /~wad3/p/index/index.php'); ?>
+
