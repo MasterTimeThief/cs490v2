@@ -19,6 +19,7 @@
 					<th>Last Name</th>
 					<th>Email</th>
 					<th>Edit</th>
+					<th>View Exams</th>
 					<th>Delete</th>
 				</tr>
 			</thead>
@@ -35,8 +36,9 @@
 					<td><?=$item['first_name']?></td>
 					<td><?=$item['last_name']?></td>
 					<td><?=$item['email']?></td>
-					<td><a href="<?=BASE_URL?>/p/students/edit_student.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
-					<td><a href="<?=BASE_URL?>/p/students/delete_student.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
+					<td><a href="<?=BASE_URL?>/p/students/edit_student.php?students_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
+					<td><a href="<?=BASE_URL?>/p/students/view_exams.php?students_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
+					<td><a href="<?=BASE_URL?>/p/students/delete_student.php?students_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
 				</tr>
 				<?php $counter+=1;?>
 			<?php endforeach; ?>
