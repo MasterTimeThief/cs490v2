@@ -6,8 +6,6 @@
 	$api = Includes_Requests_Factory::create('classes',array());
 	$classes = $api->getClasses();
 	$classesArray = json_decode($classes['body'],true);
-	dd($classesArray);
-	exit;
 ?>
 
 <div id="right_wrap">
