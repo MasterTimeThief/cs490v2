@@ -29,7 +29,7 @@ $parent = $menuObject->get_parent($page);
 <div id="panelwrap">
   	
 	<div class="header">
-    <div class="title"><a href="/~wad3/p/index/index.php">Online Exam System</a></div>
+    <div class="title"><a href="/" . CURRENT_USER . "/p/index/index.php">Online Exam System</a></div>
     
     <div class="header_right"><!-- Welcome, --><a href="<?=BASE_URL?>logout.php" class="logout">Logout</a> </div>
     <?php if(!empty($menu)):?>

@@ -26,8 +26,8 @@
 				</div>
 
 				<div class="form_row">
-				<input type="text" name="question_type" id="question_type" value="short_answer"> 
-				<input type="text" name="professor_id" id="professor_id" value="1"> <!--  todo -->
+				<input type="hidden" name="question_type" id="question_type" value="short_answer"> 
+				<input type="hidden" name="professor_id" id="professor_id" value="1"> <!--  todo -->
 				<input type="submit" class="form_submit" value="Submit" />
 				</div> 
 				<div class="clear"></div>
