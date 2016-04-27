@@ -18,6 +18,7 @@
 		$res = $api->updateStudent($_POST);
 		$resArray = json_decode($res['body'],true);
 		$msg->success('Record Updated');
+		header('Location: ' . BASE_URL . '/p/students/students.php' ) ;
 	}
 ?>
 
@@ -28,23 +29,23 @@
 			<div class="form">
 				<div class="form_row">
 				<label>First Name:</label>
-				<input type="text" class="form_input" name="first_name" id="first_name" value="<?//=$studentArray['first_name']?>"/>
+				<input type="text" class="form_input" name="first_name" id="first_name" value="<?=$studentArray['first_name']?>"/>
 				</div>
 
 				<div class="form_row">
 				<label>Last Name:</label>
-				<input type="text" class="form_input" name="last_name" id="last_name" value=""/>
+				<input type="text" class="form_input" name="last_name" id="last_name" value="<?=$studentArray['last_name']?>"/>
 				</div>
 				 
-				<div class="form_row">
+				<!--div class="form_row">
 				<label>Email:</label>
-				<input type="text" class="form_input" name="email" id="email" value=""/>
+				<input type="text" class="form_input" name="email" id="email" value="<?=$studentArray['email']?>"/>
 				</div>
 				
 				<div class="form_row">
 				<label>Password:</label>
-				<input type="password" class="form_input" name="password" id="password" value=""/>
-				</div>
+				<input type="password" class="form_input" name="password" id="password" value="<?=$studentArray['password']?>"/>
+				</div-->
 
 				<div class="form_row">
 				<input type="submit" class="form_submit" value="Submit" />

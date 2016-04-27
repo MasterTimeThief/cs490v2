@@ -12,6 +12,7 @@
 		$res = $api->addQuestionsToExam($_POST);
 		$resArray = json_decode($res['body'],true);
 		$msg->success('Record Updated');
+		header('Location: ' . BASE_URL . '/p/exams/exams.php');
 	}
 ?>
 <div id="right_wrap">
