@@ -79,7 +79,7 @@
 		<div class="form_row">
 		<input type="hidden" name="exam_id" id="exam_id" value="<?=$_GET['exam_id']?>"/>
 		<input type="submit" align="center" class="form_submit" value="Submit" />
-		</div> 
+		</div>
 		<div class="clear"></div>
 		</form>
 	</div>
