@@ -13,7 +13,7 @@
 
 <div id="right_wrap">
     <div id="right_content">             
-    	<h2>Multiple Choice</h2>
+    	<h2>Fill In The Blank</h2>
 		<form name="add_multiple_choice" id="multiple_choice" method="post" action="">
 			<div class="form">
 				<div class="form_row">

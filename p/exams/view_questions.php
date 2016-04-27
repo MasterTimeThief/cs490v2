@@ -22,7 +22,7 @@
 					<th>No.</th>
 					<th>Question</th>
 					<th>Question Type</th>
-					<th>Edit</th>
+					<th>View</th>
 					<th>Delete</th>
 				</tr>
 			</thead>
@@ -39,8 +39,7 @@
 					<td><?=$item['id']?></td>
 					<td><?=$item['question']?></td>
 					<td><?=$item['question_type']?></td>
-					<td><a href="<?=BASE_URL?>/p/questions/edit_question.php?question_id=<?=$item['exam_question_id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
-					<td><a href="<?=BASE_URL?>/p/questions/delete_question.php?question_id=<?=$item['exam_question_id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
+					<td><a href="<?=BASE_URL?>/p/questions/delete_question.php?class_id=<?=$item['exam_question_id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
 				</tr>
 				<?php $counter+=1;?>
 			<?php endforeach; ?>
