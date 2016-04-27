@@ -21,7 +21,6 @@
 		$res = $api->updateClass($_POST);
 		$resArray = json_decode($res['body'],true);
 		$msg->success('Record Updated');
-		header('Location: ' . BASE_URL . '/p/classes/classes.php');
 	}
 ?>
 

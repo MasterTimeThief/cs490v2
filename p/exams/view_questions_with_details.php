@@ -42,6 +42,8 @@
 							<textarea rows="4" cols="50" type="text" class="form_input" name="answer" id="answer" readonly><?=$item['answer_1']?></textarea>
 							</div>
 						</td>
+					<?php //continue; ?>
+					
 					<?php elseif($item['question_type']=='multiple_choice'): ?>
 						<td>
 							<div>
@@ -75,6 +77,8 @@
 							<input type="radio" class="form_input" <?=$item['which_is_correct']=='5' ? 'checked' : 'disabled';?>>
 							</div>
 						</td>
+					
+					<?php //continue; ?>
 					<?php elseif($item['question_type']=='true_or_false'): ?>
 						<td>
 							<div>
@@ -92,6 +96,8 @@
 							<input type="radio" class="form_input" <?=$item['is_true']=='0' ? 'checked' : 'disabled';?>>
 							</div>
 						</td>
+					
+					<?php //continue; ?>
 					<?php elseif($item['question_type']=='fill_in_the_blanks'): ?>
 						<td>
 							<div class="form_row">
@@ -103,6 +109,8 @@
 							<input type="text" class="form_input" name="answer" id="answer" value="<?=$item['answer_1']?>" readonly />
 							</div>
 						</td>
+
+					<?php //continue; ?>
 					<?php endif;?>
 				</div>
 				</tr>

@@ -9,6 +9,7 @@
 		$msg->success('Record Updated');
 		header('Location: ' .BASE_URL . '/p/students/students.php');
 	}
+	
 ?>
 
 <div id="right_wrap">
