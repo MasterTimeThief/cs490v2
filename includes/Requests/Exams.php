@@ -39,6 +39,13 @@ class Includes_Requests_Exams extends Includes_Requests_Abstract
 		return $response;
 	}
 	
+	public function addQuestionsToExam($data)
+	{
+		$url = ENDPOINT . '/add_questions_to_exam';
+		$response = parent::request($url, '','POST', $data);
+		return $response;
+	}
+
 	public function updateExam($data)
 	{
 		$url = ENDPOINT . '/update_exam';

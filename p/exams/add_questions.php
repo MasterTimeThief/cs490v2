@@ -6,16 +6,42 @@
 	$api = Includes_Requests_Factory::create('questions',array());
 	$data = $api->getQuestions();
 	$questionsArray = json_decode($data['body'],true);
+
+	$currentQuetionsData = $api->getQuestionsByExamId($_GET['exam_id']);
+	$currentQuestionsDataArray = json_decode($currentQuetionsData['body'],true);
 	
-	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-		$api = Includes_Requests_Factory::create('exams',array());
-		$res = $api->addQuestionsToExam($_POST);
-		$resArray = json_decode($res['body'],true);
-		$msg->success('Record Updated');
-		header('Location: ' . BASE_URL . '/p/exams/exams.php');
+	$currentIds = array();
+	if(!empty($currentQuestionsDataArray['data'])){
+		foreach($currentQuestionsDataArray['data'] as $value){
+			$currentIds[] = $value['id'];
+		}
 	}
+
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		if(empty($_POST['add_question']) || empty($_POST['exam_id'])){
+			$msg->error('Please, select questions to add');
+			header('Location: ' . $_SERVER['HTTP_REFERER']);
+		}
+		$api = Includes_Requests_Factory::create('exams',array());
+
+		foreach($_POST['add_question'] as $question_id){
+			$res[] = $api->addQuestionsToExam(array(
+												'exam_id'=>$_POST['exam_id'],
+												'question_id'=>$question_id
+										));
+		}
+		$resArray = isset($res[0]['body']) ? json_decode($res[0]['body'],true) :json_decode($res['body'],true);
+		if($resArray['code']==200){
+			$msg->success('Record Updated');
+		} else{
+			$msg->error('Something went wrong');
+		}
+		header('Location: ' . BASE_URL . '/p/exams/view_questions.php?exam_id=' . $_GET['exam_id']);
+	}
+	
 ?>
 <div id="right_wrap">
+	<p><?=$msg->display();?></p>
 	<div id="right_content">
 	<form name="add_questions_to_exam" method="post" action="">
 	<h2>Add Questions</h2>
@@ -38,7 +64,7 @@
 			<?php foreach($questionsArray['data'] as $id=>$item):?>
 				<?php $class = ($counter % 2) ? 'even' : 'odd';?>
 				<tr class="<?=$class?>">
-					<td><input type="checkbox" name="add_question" id="add_question" /></td>
+					<td><input type="checkbox" name="add_question[]" id="add_question" value="<?=$item['id']?>" <?=(in_array($item['id'],$currentIds)) ? ' checked disabled' : ''?>/></td>
 					<td><?=$item['id']?></td>
 					<td><?=$item['question']?></td>
 					<td><?=$item['question_type']?></td>
@@ -51,6 +77,7 @@
 		
 		<br>
 		<div class="form_row">
+		<input type="hidden" name="exam_id" id="exam_id" value="<?=$_GET['exam_id']?>"/>
 		<input type="submit" align="center" class="form_submit" value="Submit" />
 		</div> 
 		<div class="clear"></div>
