@@ -18,6 +18,7 @@
 		$res = $api->updateQuestion($_POST);
 		$resArray = json_decode($res['body'],true);
 		$msg->success('Record Updated');
+		header('Location: ' . BASE_URL . '/p/questions/questions.php');
 	}
 ?>
 

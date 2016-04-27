@@ -5,14 +5,13 @@
 <?php
 	$api = Includes_Requests_Factory::create('exams',array());
 	if(empty($_GET['exam_id'])){
-		header('Location: ' . BASE_URL . '/p/exams/exams.php' ) ;
+		header('Location: ' . BASE_URL . '/s/exams/exams.php' ) ;
 	}
 	$examId = $_GET['exam_id'];
+	
 	$api = Includes_Requests_Factory::create('questions',array());
 	$data = $api->getQuestionsByExamId($examId);
 	$questionsArray = json_decode($data['body'],true);
-	//dd($questionsArray);
-	//exit;
 ?>
 <div id="right_wrap">
 	<div id="right_content">
@@ -115,4 +114,5 @@
 		<div class="clear"></div>
 	</div>
 </div>
+
 <?php require_once '../../template/footer.php'; ?>
