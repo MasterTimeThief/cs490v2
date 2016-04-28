@@ -47,7 +47,7 @@
 			            </select>
 		            </div>
 		            <div class="form_row">
-		            <input type="submit" class="form_submit" value="Submit" />
+		            <input type="submit" class="form_submit" value="Add" />
 		            </div> 
 		            <div class="clear"></div>
 		        </div>

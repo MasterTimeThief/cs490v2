@@ -35,16 +35,14 @@
 		<div class="form_row">
 			<label>Status:</label>
 			<select class="form_select" name="is_available">
-				<option value="1"   >Open</option>
-				<option value="1" >Closed</option>
+				<option value="1">Open</option>
+				<option value="0">Closed</option>
 			</select>
 		</div>
-
+		
 		<div class="form_row">
 			<input type="hidden" class="form_input" name="professor_id" id="professor_id" value="1"/> <!-- @todo -->
-		</div>
-		<div class="form_row">
-		<input type="submit" class="form_submit" value="Submit" />
+			<input type="submit" class="form_submit" value="Add" />
 		</div> 
 		<div class="clear"></div>
 	</div>

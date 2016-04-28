@@ -28,7 +28,7 @@
 				<input type="hidden" name="professor_id" id="professor_id" value="1"/> <!--  todo  -->
 				</div>
 
-				<div class="form_row">
+				<div class="form_sub_buttons">
 				<input type="submit" class="form_submit" value="Submit" />
 				</div> 
 				<div class="clear"></div>

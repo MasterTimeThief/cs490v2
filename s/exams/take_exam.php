@@ -114,7 +114,8 @@
 			
 			</tbody>
 		</table>
-		<div class="form_row">
+		<br>
+		<div class="form_sub_buttons">
 		<input type="hidden" name="student_exam_id" id="student_exam_id" value="<?=$_GET['exam_id']?>"/>
 		<input type="submit" align="center" class="form_submit" value="Submit"/>
 		</div>

@@ -25,7 +25,7 @@
 				<textarea rows="5" cols="50" class="form_input" name="answer_1" id="answer_1"></textarea>
 				</div>
 
-				<div class="form_row">
+				<div class="form_sub_buttons">
 				<input type="hidden" name="question_type" id="question_type" value="short_answer"> 
 				<input type="hidden" name="professor_id" id="professor_id" value="1"> <!--  todo -->
 				<input type="submit" class="form_submit" value="Submit" />

@@ -31,7 +31,7 @@
 				<input type="radio" class="form_input" name="is_true" value="0">
 				</div>
 
-				<div class="form_row">
+				<div class="form_sub_buttons">
 				<input type="hidden" name="question_type" id="question_type" value="true_or_false"> 
 				<input type="hidden" name="professor_id" id="professor_id" value="1"> <!--  todo -->
 				<input type="submit" class="form_submit" value="Submit" />

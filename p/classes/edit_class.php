@@ -62,7 +62,7 @@
 		            	<input type="hidden" class="form_input" name="id" id="id" value="<?=$classArray['data']['id']?>"/>
 		            </div>
 		            <div class="form_row">
-		            <input type="submit" class="form_submit" value="Update" />
+		            <input type="submit" class="form_submit" value="Update"/>
 		            </div> 
 		            <div class="clear"></div>
 		        </div>

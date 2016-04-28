@@ -57,7 +57,7 @@
 				<input type="hidden" class="form_input" name="id" id="id" value="<?=$_GET['exam_id']?>"/>
 			</div>
 			<div class="form_row">
-			<input type="submit" class="form_submit" value="Submit" />
+			<input type="submit" class="form_submit" value="Update" />
 			</div> 
 			<div class="clear"></div>
 		</div>

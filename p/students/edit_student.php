@@ -47,8 +47,8 @@
 				<input type="password" class="form_input" name="password" id="password" value="<?=$studentArray['password']?>"/>
 				</div-->
 
-				<div class="form_row">
-				<input type="submit" class="form_submit" value="Submit" />
+				<div class="form_sub_buttons">
+				<input type="submit" class="form_submit" value="Update" />
 				</div> 
 				<div class="clear"></div>
 			</div>
