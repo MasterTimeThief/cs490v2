@@ -9,9 +9,19 @@
 	}
 	$student_id = $_GET['student_id'];
 	
-	$data = $api->getStudentById($student_id);
-	$studentArray = json_decode($data['body'],true);
-	dd($studentArray);
+	//$data = $api->getStudentById($student_id);
+	//$studentArray = = json_decode($data['body'],true);
+	$data = $api->getStudents();
+	$studentsArray = json_decode($data['body'],true);
+	dd($studentsArray);
+	//exit;
+	
+	foreach($studentsArray['data'] as $id=>$item){
+		if ($item['id']===$student_id){
+			$studentArray = $item;
+			break;
+		}
+	}
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$api = Includes_Requests_Factory::create('students',array());

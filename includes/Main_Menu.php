@@ -109,11 +109,65 @@ class Main_Menu
 						)
 				),
 		);
+		
+		//Student Menu
+		$this->_StudentsMenu = array(
+				'index' => array(
+						'name'=>'Index',
+						'url'=> BASE_URL . '/s/index/index.php',
+						'links'=>array(
+								array(
+										'name'=>'Home',
+										'url'=>BASE_URL . '/s/index/index.php'
+								),
+								array(
+										'name'=>'Settings',
+										'url'=>BASE_URL . '/s/index/settings.php'
+								),
+								array(
+										'name'=>'Users',
+										'url'=>BASE_URL . '/s/index/users.php'
+								),
+								array(
+										'name'=>'Categories',
+										'url'=>BASE_URL . '/s/index/categories.php'
+								),
+						)
+				),
+				'classes' => array(
+						'name'=>'Classes',
+						'url'=>BASE_URL . '/s/classes/classes.php',
+						'links'=>array(
+								array(
+										'name'=>'Classes',
+										'url'=>BASE_URL . '/s/classes/classes.php'
+								),
+						)
+				),
+				'exams' => array(
+						'name'=>'Exams',
+						'url'=>BASE_URL . '/s/exams/exams.php',
+						'links'=>array(
+								array(
+										'name'=>'View Exams',
+										'url'=>BASE_URL . '/s/exams/exams.php'
+								),
+								array(
+										'name'=>'View Grades',
+										'url'=>BASE_URL . '/s/exams/add_exam.php'
+								),
+						)
+				),
+		);
+		
+		
+		
 	}
 
 	function get_menu()
 	{
 		return $this->_ProfessorsMenu;
+		//Include function to send different menu after login
 	}
 	
 	public function get_parent($child)
