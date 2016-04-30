@@ -8,13 +8,14 @@
 		<div class="form_row">
 		<label>Answer:</label>
 			<textarea rows="5" cols="50" type="text" class="form_input" name="answer_1" id="answer_1"><?= $questionArray['data']['answer_1']?></textarea>
-			<input type="hidden" name="question_id" id="question_id" value="<?=$questionId?>">
 		</div>
 
+		<div class="form_row">
 		<div class="form_sub_buttons">
-			<input type="hidden" name="question_id" id="question_id" value="<?=$questionId?>">
+			<input type="hidden" name="id" id="id" value="<?=$questionId?>">
 			<input type="submit" class="form_submit" value="Update" />
 		</div> 
+		</div>
 		<div class="clear"></div>
 	</div>
 </form>
