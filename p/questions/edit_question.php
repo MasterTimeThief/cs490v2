@@ -21,6 +21,7 @@ if(!isLoggedIn('professor')){
 	$questionArray = json_decode($data['body'],true);
 	//dd($questionArray);
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		
 		$api = Includes_Requests_Factory::create('questions',array());
 		$res = $api->updateQuestion($_POST);
 		$resArray = json_decode($res['body'],true);

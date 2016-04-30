@@ -38,4 +38,18 @@ class Includes_Requests_Questions extends Includes_Requests_Abstract
 		$response = parent::request($url, '','POST', $data);
 		return $response;
 	}
+	
+	public function deleteQuestionById($id)
+	{
+		$url = ENDPOINT . "/delete_question_by_id";
+		$response = parent::request($url, '','POST', array('id'=>$id));
+		return $response;
+	}
+	
+	public function updateQuestion($data)
+	{
+		$url = ENDPOINT . "/update_question";
+		$response = parent::request($url, '','POST', $data);
+		return $response;
+	}
 }
