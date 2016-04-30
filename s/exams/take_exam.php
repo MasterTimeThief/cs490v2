@@ -12,6 +12,10 @@
 	$api = Includes_Requests_Factory::create('questions',array());
 	$data = $api->getQuestionsByExamId($examId);
 	$questionsArray = json_decode($data['body'],true);
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		dd($_POST);
+		
+	}
 ?>
 <div id="right_wrap">
 	<div id="right_content">
@@ -39,7 +43,7 @@
 							
 							<div class="form_row">
 							<label>Answer:</label>
-							<textarea rows="4" cols="50" type="text" class="form_input" name="student_answer_<?=$item['id']?>"></textarea>
+							<textarea rows="4" cols="50" type="text" class="form_input" name="student_answer[<?=$item['id']?>]"></textarea>
 							</div>
 						</td>
 					<?php elseif($item['question_type']=='multiple_choice'): ?>
@@ -52,27 +56,27 @@
 							
 							<div class="form_row">
 							<label><?=$item['answer_1']?>:</label>
-							<input type="radio" class="form_input" name="student_answer_<?=$item['id']?>" id="student_answer_<?=$item['id']?>" value="1">
+							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="1">
 							</div>
 							
 							<div class="form_row">
 							<label><?=$item['answer_2']?>:</label>
-							<input type="radio" class="form_input" name="student_answer_<?=$item['id']?>" id="student_answer_<?=$item['id']?>" value="2">
+							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="2">
 							</div>
 							
 							<div class="form_row">
 							<label><?=$item['answer_3']?>:</label>
-							<input type="radio" class="form_input" name="student_answer_<?=$item['id']?>" id="student_answer_<?=$item['id']?>" value="3">
+							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="3">
 							</div>
 							
 							<div class="form_row">
 							<label><?=$item['answer_4']?>:</label>
-							<input type="radio" class="form_input" name="student_answer_<?=$item['id']?>" id="student_answer_<?=$item['id']?>" value="4">
+							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="4">
 							</div>
 							
 							<div class="form_row">
 							<label><?=$item['answer_5']?>:</label>
-							<input type="radio" class="form_input" name="student_answer_<?=$item['id']?>" id="student_answer_<?=$item['id']?>" value="5">
+							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="5">
 							</div>
 						</td>
 					<?php elseif($item['question_type']=='true_or_false'): ?>
@@ -85,12 +89,12 @@
 							
 							<div class="form_row">
 							<label>True:</label>
-							<input type="radio" class="form_input" name="student_answer_<?=$item['id']?>" id="student_answer_<?=$item['id']?>" value="1">
+							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="1">
 							</div>
 							
 							<div class="form_row">
 							<label>False:</label>
-							<input type="radio" class="form_input" name="student_answer_<?=$item['id']?>" id="student_answer_<?=$item['id']?>" value="0">
+							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="0">
 							</div>
 						</td>
 					<?php elseif($item['question_type']=='fill_in_the_blanks'): ?>
@@ -103,7 +107,7 @@
 							
 							<div class="form_row">
 							<label>Answer:</label>
-							<input type="text" class="form_input" name="student_answer_<?=$item['id']?>" id="student_answer_<?=$item['id']?>" value=""/>
+							<input type="text" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value=""/>
 							</div>
 						</td>
 					<?php endif;?>
