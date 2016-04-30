@@ -16,6 +16,7 @@ if(!isLoggedIn('professor')){
 ?>
 
 <div id="right_wrap">
+	<p><?=$msg->display();?></p>
     <div id="right_content">             
     <h2>Available Exams</h2> 
 
@@ -51,7 +52,7 @@ if(!isLoggedIn('professor')){
             <td><a href="<?=BASE_URL?>/p/exams/edit_exam.php?exam_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
 			<td><a href="<?=BASE_URL?>/p/exams/add_questions.php?exam_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
 			<td><a href="<?=BASE_URL?>/p/exams/view_questions.php?exam_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
+            <td><a href="<?=BASE_URL?>/p/exams/delete_exam.php?exam_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
 		</tr>
 		<?php $counter+=1;?>
   <?php endforeach; ?>

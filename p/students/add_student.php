@@ -12,6 +12,7 @@ if(!isLoggedIn('professor')){
 <?php
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$api = Includes_Requests_Factory::create('students',array());
+		$_POST['password'] = md5($_POST['password']);
 		$res = $api->addStudent($_POST);
 		$msg->success('Record Updated');
 		header('Location: ' .BASE_URL . '/p/students/students.php');
@@ -45,6 +46,7 @@ if(!isLoggedIn('professor')){
 
 				<div class="form_row">
 				<input type="hidden" class="form_submit" name="role" id="role" value="student" />
+				<input type="hidden" class="form_submit" name="active" id="active" value="1" />
 				<input type="submit" class="form_submit" value="Submit" />
 				</div> 
 				<div class="clear"></div>

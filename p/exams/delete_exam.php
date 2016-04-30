@@ -16,8 +16,8 @@ if(!isLoggedIn('professor')){
 	}
 	$exam_id = $_GET['exam_id'];
 
-	$data = $api->deleteExamById($exam_id);
-	$examArray = json_decode($data['body'],true);
+	$response = $api->deleteExamById($exam_id);
+	$examArray = json_decode($response['body'],true);
 	$msg->success('Record Updated');
 	header('Location: ' . $_SERVER['HTTP_REFERER']);
 	

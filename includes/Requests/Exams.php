@@ -52,4 +52,11 @@ class Includes_Requests_Exams extends Includes_Requests_Abstract
 		$response = parent::request($url, '','POST', $data);
 		return $response;
 	}
+	
+	public function deleteExamById($id)
+	{
+		$url = ENDPOINT . '/delete_exam_by_id';
+		$response = parent::request($url, '','POST', array('id'=>$id));
+		return $response;
+	}
 }
