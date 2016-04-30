@@ -31,7 +31,7 @@ $parent = $menuObject->get_parent($page);
 	<div class="header">
     <div class="title"><a href="/" . CURRENT_USER . "/p/index/index.php">Online Exam System</a></div>
     
-    <div class="header_right"><!-- Welcome, --><a href="<?=BASE_URL?>logout.php" class="logout">Logout</a> </div>
+    <div class="header_right">Welcome, <?=(!empty($_SESSION['first_name']) && !empty($_SESSION['last_name'])) ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] :''?><a href="<?=BASE_URL?>/logout.php" class="logout">Logout</a> </div>
     <?php if(!empty($menu)):?>
 	<div class="menu">
     	<ul>

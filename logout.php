@@ -1,5 +1,5 @@
-<?php
-session_start();
+<?php session_start();
+require_once 'bootstrap.php';
 session_destroy();
-header("Location: login.php");
+header('Location: ' . BASE_URL . '/login.php');
 exit;

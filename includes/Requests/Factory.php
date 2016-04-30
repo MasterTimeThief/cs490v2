@@ -31,6 +31,9 @@ class Includes_Requests_Factory
 			case 'categories':
 				$request = new Includes_Requests_Categories($options);
 				break;
+			case 'users':
+				$request = new Includes_Requests_Users($options);
+				break;
 			default:
 				break;
 		}

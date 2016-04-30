@@ -11,3 +11,11 @@ function dd_dump($data)
 		var_dump($data);
 	echo '</pre>';
 }
+
+function isLoggedIn($type='professor')
+{
+	if(isset($_SESSION['role']) && $type == $_SESSION['role']){
+		return true;
+	}
+	return false;
+}

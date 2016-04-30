@@ -10,14 +10,13 @@ require_once 'includes/Requests/Classes.php';
 require_once 'includes/Requests/Exams.php';
 require_once 'includes/Requests/Questions.php';
 require_once 'includes/Requests/Students.php';
+require_once 'includes/Requests/Users.php';
 require_once 'includes/Requests/Categories.php';
 require_once 'includes/Requests/Index.php';
 require_once 'includes/Requests/Factory.php';
 require_once 'includes/CurrentUser.php';
 require_once 'includes/Environment.php';
 
-
 $menuObject = new Main_Menu();
 $menu = $menuObject->get_menu();
 $msg = new FlashMessages();
-
