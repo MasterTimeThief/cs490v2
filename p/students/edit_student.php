@@ -16,20 +16,8 @@ if(!isLoggedIn('professor')){
 	}
 	$student_id = $_GET['student_id'];
 	
-	//$data = $api->getStudentById($student_id);
-	//$studentArray = = json_decode($data['body'],true);
-	$data = $api->getStudents();
-	$studentsArray = json_decode($data['body'],true);
-	dd($studentsArray);
-	//exit;
-	
-	foreach($studentsArray['data'] as $id=>$item){
-		if ($item['id']===$student_id){
-			$studentArray = $item;
-			break;
-		}
-	}
-
+	$data = $api->getStudentById($student_id);
+	$studentArray = json_decode($data['body'],true);
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$api = Includes_Requests_Factory::create('students',array());
 		$res = $api->updateStudent($_POST);
@@ -46,25 +34,16 @@ if(!isLoggedIn('professor')){
 			<div class="form">
 				<div class="form_row">
 				<label>First Name:</label>
-				<input type="text" class="form_input" name="first_name" id="first_name" value="<?=$studentArray['first_name']?>"/>
+				<input type="text" class="form_input" name="first_name" id="first_name" value="<?=$studentArray['data']['first_name']?>"/>
 				</div>
 
 				<div class="form_row">
 				<label>Last Name:</label>
-				<input type="text" class="form_input" name="last_name" id="last_name" value="<?=$studentArray['last_name']?>"/>
+				<input type="text" class="form_input" name="last_name" id="last_name" value="<?=$studentArray['data']['last_name']?>"/>
 				</div>
-				 
-				<!--div class="form_row">
-				<label>Email:</label>
-				<input type="text" class="form_input" name="email" id="email" value="<?=$studentArray['email']?>"/>
-				</div>
-				
-				<div class="form_row">
-				<label>Password:</label>
-				<input type="password" class="form_input" name="password" id="password" value="<?=$studentArray['password']?>"/>
-				</div-->
 
 				<div class="form_sub_buttons">
+				<input type="hidden" class="form_input" name="id" id="id" value="<?=$student_id?>"/>
 				<input type="submit" class="form_submit" value="Update" />
 				</div> 
 				<div class="clear"></div>

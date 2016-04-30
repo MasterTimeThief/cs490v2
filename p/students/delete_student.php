@@ -10,14 +10,14 @@ if(!isLoggedIn('professor')){
 <?php require_once '../../template/header.php'; ?>
 
 <?php 
-	$api = Includes_Requests_Factory::create('students',array());
 	if(empty($_GET['student_id'])){
 		header('Location: ' . BASE_URL . 'p/exams/exams.php' ) ;
 	}
+	$api = Includes_Requests_Factory::create('students',array());
 	$student_id = $_GET['student_id'];
-
-	$data = $api->deleteStudentById($student_id);
-	$msg->success('Record Updated');
+	$response = $api->deleteStudentById($student_id);
+	$msg->success('Record Deleted');
 	header('Location: ' . $_SERVER['HTTP_REFERER']);
+	exit;
 	
 	

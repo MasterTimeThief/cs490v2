@@ -31,4 +31,18 @@ class Includes_Requests_Students extends Includes_Requests_Abstract
 		$response = parent::request($url, '','POST', $data);
 		return $response;
 	}
+	
+	public function getStudentById($id)
+	{
+		$url = ENDPOINT . "/get_student_by_id/$id";
+		$response = parent::request($url, '','GET', null);
+		return $response;
+	}
+	
+	public function deleteStudentById($id)
+	{
+		$url = ENDPOINT . "/delete_student_by_id/$id";
+		$response = parent::request($url, '','POST', null);
+		return $response;
+	}
 }
