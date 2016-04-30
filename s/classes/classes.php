@@ -4,8 +4,7 @@
 
 <?php 
 	$api = Includes_Requests_Factory::create('classes',array());
-	//$classes = $api->getOpenClasses();
-	$classes = $api->getClasses();
+	$classes = $api->getClassesByStudentId($_SESSION['id']);
 	$classesArray = json_decode($classes['body'],true);
 ?>
 
@@ -18,8 +17,7 @@
 				<tr>
 					<th>Code</th>
 					<th>Title</th>
-					<th>Category</th>
-					<th>What If?</th>
+					<th>View Details</th>
 				</tr>
 			</thead>
 				<tfoot>
@@ -34,8 +32,10 @@
 				<tr class="<?=$class?>">
 					<td><?=$item['code']?></td>
 					<td><?=$item['title']?></td>
-					<td><?=$item['category']?></td>
-					<td><a href="<?=BASE_URL?>/s/classes/class_minimum.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
+					<td>
+						<a href="<?=BASE_URL?>/s/classes/class_minimum.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a>
+						<a href="<?=BASE_URL?>/s/classes/class_details.php?class_id=<?=$item['id']?>">Details</a>
+					</td>
 				</tr>
 				<?php $counter+=1;?>
 			<?php endforeach; ?>

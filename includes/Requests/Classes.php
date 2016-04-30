@@ -44,4 +44,18 @@ class Includes_Requests_Classes extends Includes_Requests_Abstract
 		$response = parent::request($url, array() ,'POST', array('id'=>$id));
 		return $response;
 	}
+	
+	public function getClassesByStudentId($id)
+	{
+		$url = ENDPOINT . '/get_classes_by_student_id/'. $id;
+		$response = parent::request($url, '','GET', null);
+		return $response;
+	}
+	
+	public function getExamsByClassId($id)
+	{
+		$url = ENDPOINT . '/get_exams_by_class_id/'. $id;
+		$response = parent::request($url, '','GET', null);
+		return $response;
+	}
 }
