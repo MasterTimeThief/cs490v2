@@ -22,9 +22,10 @@ $(".trigger").click(function(){
 </head>
 <body>
 <?php
+$menuType = !empty($_SESSION['role']) ? $_SESSION['role']: 'student';
 $current_page =  basename($_SERVER['PHP_SELF']);
 $page = substr($current_page,0,strpos($current_page,"."));
-$parent = $menuObject->get_parent($page,'student');
+$parent = $menuObject->get_parent($page,$menuType);
 ?>
 <div id="panelwrap">
   	
