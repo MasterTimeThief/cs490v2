@@ -25,7 +25,7 @@ if(!isLoggedIn('professor')){
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
-					<th>Add Classes</th>
+					<th>Registration</th>
 					<th>Edit</th>
 					<th>Delete</th>
 				</tr>
