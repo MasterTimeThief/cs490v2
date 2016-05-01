@@ -8,16 +8,110 @@
 		header('Location: ' . BASE_URL . '/s/exams/exams.php' ) ;
 	}
 	$examId = $_GET['exam_id'];
-	
 	$api = Includes_Requests_Factory::create('questions',array());
+	
+	$grades = $api->getStudentGrade($examId,$_SESSION['id']);
+	$gradesArray = json_decode($grades['body'],true);
+	$isExamAvailable=true;
+	if(!empty($gradesArray)){
+		$msg->error("This exam has been taken already");
+		$isExamAvailable=false;
+		
+	}
+	dd($gradesArray);
+	
 	$data = $api->getQuestionsByExamId($examId);
 	$questionsArray = json_decode($data['body'],true);
+	//dd($questionsArray['data']);
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-		dd($_POST);
+		$studentId = $_POST['student_id'];
+		//dd($_POST);
+		foreach($questionsArray['data'] as $question){
+			$questionId= $question['id'];
+			//dd($_POST['student_answer'][$questionId]);
+			if(isset($_POST['student_answer'][$questionId])){
+				// Answer match
+				//dd($question);
+				$studentAnswer = $_POST['student_answer'][$questionId];
+				
+				$data = array(
+					'exam_id'		=>	$examId,
+					'student_id'	=>  $studentId,
+					'question_id'	=> $questionId
+				);
+				// True or False
+				if($question['question_type'] == 'true_or_false')
+				{
+					$correctAnswer = $question['is_true'];
+					
+					$data['question_type'] = 'true_or_false';
+					
+					if($studentAnswer == $correctAnswer){
+						//echo "question $questionId is Correct";
+						$data['answer'] = 1;
+						$data['is_correct'] = 1;
+						
+					} else {
+						//echo "question $questionId is NOT Correct";
+						$data['answer'] 		= 0;
+						$data['is_correct'] 	= 0;
+					}
+					$response = $api->insertStudentAnswer($data);
+
+				}else if($question['question_type']=='fill_in_the_blanks'){
+					$correctAnswer = trim(strtolower($question['answer_1']));
+					$data['question_type'] = 'fill_in_the_blanks';
+					$data['answer']= trim(strtolower($studentAnswer));
+					if($studentAnswer == $correctAnswer){
+						//echo "question $questionId is Correct";
+						$data['is_correct']	= 1;
+					} else {
+						//echo "question $questionId is NOT Correct";
+						$data['is_correct']	= 0;
+					}
+					
+					$response = $api->insertStudentAnswer($data);
+					
+				}else if($question['question_type']=='multiple_choice'){
+					//dd($_POST);
+					$which = $question['which_is_correct'];
+					$data['question_type'] = 'multiple_choice';
+					//var_dump($which);
+					$data['answer'] =$studentAnswer; 
+					if($studentAnswer == $which){
+						//echo "question $questionId is Correct";
+						$data['is_correct']	= 1;
+					} else {
+						//echo "question $questionId is NOT Correct";
+						$data['is_correct']	= 0;
+					}
+					$response = $api->insertStudentAnswer($data);
+
+				} else if($question['question_type']=='short_answer') {
+					$correctAnswer = trim(strtolower($question['answer_1']));
+					$data['question_type'] = 'short_answer';
+					$data['answer']= trim(strtolower($studentAnswer));
+					
+					// Do PHP unit here
+					$data['is_correct']	= 0;
+					$response = $api->insertStudentAnswer($data);
+				} else{
+					// nothing here for now
+				}
 		
+			
+			} else {
+				// Not found in the answers. Set it as failed
+				echo "not found<br/>";
+
+			}
+		}
+		header("Location: " .BASE_URL . "/s/exams/view_results.php?exam_id={$examId}");
+		exit;
 	}
 ?>
 <div id="right_wrap">
+	<p><?=$msg->display()?></p>
 	<div id="right_content">
 	<h2>View Questions</h2>
 	<form name="add_multiple_choice" id="multiple_choice" method="post" action="">
@@ -115,17 +209,18 @@
 				</tr>
 				<?php $counter+=1;?>
 			<?php endforeach; ?>
-			
 			</tbody>
 		</table>
 		<br>
 		<div class="form_sub_buttons">
-		<input type="hidden" name="student_exam_id" id="student_exam_id" value="<?=$_GET['exam_id']?>"/>
-		<input type="submit" align="center" class="form_submit" value="Submit"/>
+		<input type="hidden" name="exam_id" id="exam_id" value="<?=$_GET['exam_id']?>"/>
+		<input type="hidden" name="student_id" id="student_id" value="<?=$_SESSION['id']?>"/>
+		<?php if($isExamAvailable):?>
+			<input type="submit" align="center" class="form_submit" value="Submit"/>
+		<?php endif;?>
 		</div>
 		<div class="clear"></div>
 		</form>
 	</div>
 </div>
-
 <?php require_once '../../template/footer.php'; ?>

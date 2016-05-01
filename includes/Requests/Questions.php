@@ -52,4 +52,32 @@ class Includes_Requests_Questions extends Includes_Requests_Abstract
 		$response = parent::request($url, '','POST', $data);
 		return $response;
 	}
+
+	public function insertStudentAnswer($data)
+	{
+		$url = ENDPOINT . "/insert_student_answer";
+		$response = parent::request($url, '','POST', $data);
+		return $response;
+	}
+	
+	public function getStudentAnswers($examId,$studentId)
+	{
+		$url = ENDPOINT . "/get_student_answers/exam_id/{$examId}/student_id/{$studentId}";
+		$response = parent::request($url, '','GET', null);
+		return $response;
+	}
+	
+	public function addStudentGrade($data)
+	{
+		$url = ENDPOINT . "/add_student_grade";
+		$response = parent::request($url, '','POST', $data);
+		return $response;
+	}
+	
+	public function getStudentGrade($examId,$studentId)
+	{
+		$url = ENDPOINT . "/get_student_grade/exam_id/{$examId}/student_id/{$studentId}";
+		$response = parent::request($url, '','GET', null);
+		return $response;
+	}
 }

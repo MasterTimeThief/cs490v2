@@ -4,7 +4,7 @@
 
 <?php
 	$api = Includes_Requests_Factory::create('students',array());
-	$student_id = $_GET['student_id'];
+	$student_id = $_SESSION['id'];
 	
 	$api = Includes_Requests_Factory::create('exams',array());
 	$exams = $api->getExamsByStudentId($student_id); // Todo
