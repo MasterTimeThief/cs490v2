@@ -120,28 +120,6 @@ class Main_Menu
 		
 		//Student Menu
 		$this->_StudentsMenu = array(
-				'index' => array(
-						'name'=>'Index',
-						'url'=> BASE_URL . '/s/index/index.php',
-						'links'=>array(
-								array(
-										'name'=>'Home',
-										'url'=>BASE_URL . '/s/index/index.php'
-								),
-								array(
-										'name'=>'Settings',
-										'url'=>BASE_URL . '/s/index/settings.php'
-								),
-								array(
-										'name'=>'Users',
-										'url'=>BASE_URL . '/s/index/users.php'
-								),
-								array(
-										'name'=>'Categories',
-										'url'=>BASE_URL . '/s/index/categories.php'
-								),
-						)
-				),
 				'classes' => array(
 						'name'=>'Classes',
 						'url'=>BASE_URL . '/s/classes/classes.php',
@@ -149,6 +127,10 @@ class Main_Menu
 								array(
 										'name'=>'Classes',
 										'url'=>BASE_URL . '/s/classes/classes.php'
+								),
+								array(
+										'name'=>'Class Details',
+										'url'=>BASE_URL . '/s/classes/class_details.php'
 								),
 						)
 				),
@@ -178,10 +160,11 @@ class Main_Menu
 		//Include function to send different menu after login
 	}
 	
-	public function get_parent($child)
+	public function get_parent($child, $type='professor')
 	{
 		$parent='none';
-		foreach($this->_ProfessorsMenu  as $index=>$item){
+		$target = ($type=='professor') ? $this->_ProfessorsMenu :  $this->_StudentsMenu;
+		foreach($target  as $index=>$item){
 			// If current item is index then its a parent
 			if($child==$index){
 				$parent=$child;
@@ -200,5 +183,10 @@ class Main_Menu
 			
 		}
 		return $parent;
+	}
+	
+	public function get_student_menu()
+	{
+		return $this->_StudentsMenu;
 	}
 } // Main Menu

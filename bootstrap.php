@@ -18,5 +18,10 @@ require_once 'includes/CurrentUser.php';
 require_once 'includes/Environment.php';
 
 $menuObject = new Main_Menu();
-$menu = $menuObject->get_menu();
 $msg = new FlashMessages();
+
+if(!empty($_SESSION['role']) && $_SESSION['role']=='student'){
+	$menu = $menuObject->get_student_menu();
+} else {
+	$menu = $menuObject->get_menu();
+}

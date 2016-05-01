@@ -24,12 +24,12 @@ $(".trigger").click(function(){
 <?php
 $current_page =  basename($_SERVER['PHP_SELF']);
 $page = substr($current_page,0,strpos($current_page,"."));
-$parent = $menuObject->get_parent($page);
+$parent = $menuObject->get_parent($page,'student');
 ?>
 <div id="panelwrap">
   	
 	<div class="header">
-    <div class="title"><a href="/" . CURRENT_USER . "/p/index/index.php">Online Exam System</a></div>
+    <div class="title">Online Exam System</div>
     
     <div class="header_right">Welcome, <?=(!empty($_SESSION['first_name']) && !empty($_SESSION['last_name'])) ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] :''?><a href="<?=BASE_URL?>/logout.php" class="logout">Logout</a> </div>
     <?php if(!empty($menu)):?>
@@ -53,29 +53,5 @@ $parent = $menuObject->get_parent($page);
 			    </ul>
 			    </div>
     <?php endif;?>
-    <!-- <div class="menu">
-    <ul>
-    <li><a href="#" class="selected">Main page</a></li>
-    <li><a href="#">Classes</a></li>
-    <li><a href="#">Students</a></li>
-    <li><a href="#">Exams</a></li>
-    <li><a href="#">Categories</a></li>
-    <li><a href="#">Options</a></li>
-    <li><a href="#">Admin settings</a></li>
-    <li><a href="#">Help</a></li>
-    </ul>
-    </div>
-    
-    </div>
-    
-    <div class="submenu">
-    <ul>
-    <li><a href="#" class="selected">settings</a></li>
-    <li><a href="#">users</a></li>
-    <li><a href="#">categories</a></li>
-    <li><a href="#">edit section</a></li>
-    <li><a href="#">templates</a></li>
-    </ul>
-    </div>     -->     
 	<?php endif;?>
     <div class="center_content"> 

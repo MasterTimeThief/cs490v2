@@ -13,7 +13,7 @@ if(!isLoggedIn('student')){
 	if(empty($_GET['class_id'])){
 		header('Location: ' . BASE_URL . '/s/classes/classes.php' ) ;
 	}
-	$class_id = $_GET['class_id'];
+
 	if(empty($_GET['class_id'])){
 		header('Location: ' . BASE_URL . '/p/classes/classes.php' ) ;
 	}
