@@ -4,28 +4,29 @@
 
 <?php
 	$api = Includes_Requests_Factory::create('exams',array());
-	if(empty($_GET['exam_id'])){
+	if(empty($_GET['exam_id']) || empty($_GET['class_id'])){
 		header('Location: ' . BASE_URL . '/s/exams/exams.php' ) ;
 	}
 	$examId = $_GET['exam_id'];
+	$classId = $_GET['class_id'];
 	$api = Includes_Requests_Factory::create('questions',array());
 	
 	$grades = $api->getStudentGrade($examId,$_SESSION['id']);
 	$gradesArray = json_decode($grades['body'],true);
+	//dd($gradesArray);
 	$isExamAvailable=true;
-	if(!empty($gradesArray)){
+	if(!empty($gradesArray['data'])){
+		dd($gradesArray['data']);
 		$msg->error("This exam has been taken already");
 		$isExamAvailable=false;
-		
 	}
-	dd($gradesArray);
-	
 	$data = $api->getQuestionsByExamId($examId);
 	$questionsArray = json_decode($data['body'],true);
 	//dd($questionsArray['data']);
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$studentId = $_POST['student_id'];
-		//dd($_POST);
+		$numberOfQuestions=count($questionsArray['data']);
+		$numberOfCorrectAnswers=0;
 		foreach($questionsArray['data'] as $question){
 			$questionId= $question['id'];
 			//dd($_POST['student_answer'][$questionId]);
@@ -35,9 +36,10 @@
 				$studentAnswer = $_POST['student_answer'][$questionId];
 				
 				$data = array(
-					'exam_id'		=>	$examId,
-					'student_id'	=>  $studentId,
-					'question_id'	=> $questionId
+					'exam_id'		=> $examId,
+					'student_id'	=> $studentId,
+					'question_id'	=> $questionId,
+					'class_id'		=> $classId
 				);
 				// True or False
 				if($question['question_type'] == 'true_or_false')
@@ -50,6 +52,7 @@
 						//echo "question $questionId is Correct";
 						$data['answer'] = 1;
 						$data['is_correct'] = 1;
+						$numberOfCorrectAnswers+=1;
 						
 					} else {
 						//echo "question $questionId is NOT Correct";
@@ -65,11 +68,11 @@
 					if($studentAnswer == $correctAnswer){
 						//echo "question $questionId is Correct";
 						$data['is_correct']	= 1;
+						$numberOfCorrectAnswers+=1;
 					} else {
 						//echo "question $questionId is NOT Correct";
 						$data['is_correct']	= 0;
 					}
-					
 					$response = $api->insertStudentAnswer($data);
 					
 				}else if($question['question_type']=='multiple_choice'){
@@ -81,6 +84,7 @@
 					if($studentAnswer == $which){
 						//echo "question $questionId is Correct";
 						$data['is_correct']	= 1;
+						$numberOfCorrectAnswers+=1;
 					} else {
 						//echo "question $questionId is NOT Correct";
 						$data['is_correct']	= 0;
@@ -94,6 +98,7 @@
 					
 					// Do PHP unit here
 					$data['is_correct']	= 0;
+					$numberOfCorrectAnswers+=0;
 					$response = $api->insertStudentAnswer($data);
 				} else{
 					// nothing here for now
@@ -106,7 +111,24 @@
 
 			}
 		}
-		header("Location: " .BASE_URL . "/s/exams/view_results.php?exam_id={$examId}");
+		
+		// Insert statistics and redirect
+		$grades = $api->getStudentGrade($examId,$_SESSION['id']);
+		$gradesArray = json_decode($grades['body'],true);
+		$grade = ($numberOfCorrectAnswers==0) ? 0 : ($numberOfCorrectAnswers/$numberOfQuestions) * 100;
+
+		if(empty($gradesArray['data'])){
+			 $data = array(
+				 'class_id'=>$classId,
+				 'exam_id'=>$examId,
+				 'student_id'=>$_SESSION['id'],
+				 'grade'=>$grade,
+				 'is_complete'=>1,
+				 'notes'=>''
+			 );
+			 $response = $api->addStudentGrade($data);
+		 }
+		header("Location: " .BASE_URL . "/s/exams/view_results.php?exam_id={$examId}&class_id={$classId}");
 		exit;
 	}
 ?>

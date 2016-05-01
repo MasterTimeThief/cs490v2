@@ -15,5 +15,5 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` VALUES 
 	(1,'Jack','Nicholson', 'professor@njit.edu','a4569ce3eae99c5f3c8b1e0d19462014',1,NULL,'professor'),
-	(2,'Walter','Diaz', 'wad3@njit.edu','cd73502828457d15655bbd7a63fb0bc8',1,NULL,'student'),
+	(2,'Walter','Diaz', 'wad3@njit.edu','a4569ce3eae99c5f3c8b1e0d19462014',1,NULL,'student'),
 	(3,'John','Ferguson', 'student@njit.edu','a4569ce3eae99c5f3c8b1e0d19462014',1,NULL,'student');

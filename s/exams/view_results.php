@@ -4,10 +4,11 @@
 
 <?php
 	$api = Includes_Requests_Factory::create('exams',array());
-	if(empty($_GET['exam_id'])){
+	if(empty($_GET['exam_id']) || empty($_GET['class_id'])){
 		header('Location: ' . BASE_URL . '/s/exams/exams.php' ) ;
 	}
 	$examId = $_GET['exam_id'];
+	$classId = $_GET['class_id'];
 	
 	$api = Includes_Requests_Factory::create('questions',array());
 	$data = $api->getQuestionsByExamId($examId);
@@ -159,23 +160,9 @@
 			<p><?="Number of Questions: $numberOfQuestions"?></p>
 			<p><?="Correct Answers: $numberOfCorrectAnswers"?></p>
 			<?php 
-				$grade = ($numberOfCorrectAnswers==0) ? 0 : ($numberOfQuestions/$numberOfCorrectAnswers) * 100;
+				$grade = ($numberOfCorrectAnswers==0) ? 0 : round(($numberOfCorrectAnswers/$numberOfQuestions) * 100,2);
 			?>
 			<p><?="Your Grade is: $grade"?></p>
-			
-			<?php 
-			$grades = $api->getStudentGrade($examId,$_SESSION['id']);
-			$gradesArray = json_decode($grades['body'],true);
-			if(empty($gradesArray)){
-				$data = array(
-					'exam_id'=>$examId,
-					'student_id'=>$_SESSION['id'],
-					'grade'=>$grade,
-					'notes'=>''
-				);
-				$response = $api->addStudentGrade($data);
-			}
-			?>
 		</div>
 		<div class="clear"></div>
 		</form>

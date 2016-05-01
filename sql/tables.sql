@@ -65,13 +65,27 @@ CREATE TABLE `student_has_classes`
     PRIMARY KEY(`id`)
 )Engine='InnoDB';
 
-insert into `student_has_classes`(`student_id`,`class_id`)
- values
-	(2,1),
-    (2,2),
-    (2,3);
+DROP TABLE IF EXISTS `student_take_exam`;
+CREATE TABLE `student_take_exam` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `class_id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `question_type` enum('true_or_false','multiple_choice','fill_in_the_blanks','short_answer') DEFAULT NULL,
+  `answer` varchar(255) DEFAULT NULL,
+  `is_correct` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
 
-select * from categories;
-select * from classes;
-select * from exams;
-select * from questions;
+DROP TABLE IF EXISTS `student_grades`;
+CREATE TABLE `student_grades` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `class_id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `grade` int(11) DEFAULT NULL,
+  `is_complete` tinyint(1) DEFAULT '1',
+  `notes` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
