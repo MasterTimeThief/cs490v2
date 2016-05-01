@@ -26,22 +26,22 @@ if(!isLoggedIn('professor')){
 			<div class="form">
 				<div class="form_row">
 				<label>First Name:</label>
-				<input type="text" class="form_input" name="first_name" id="first_name" value=""/>
+				<input type="text" class="form_input_short" name="first_name" id="first_name" value=""/>
 				</div>
 
 				<div class="form_row">
 				<label>Last Name:</label>
-				<input type="text" class="form_input" name="last_name" id="last_name" value=""/>
+				<input type="text" class="form_input_short" name="last_name" id="last_name" value=""/>
 				</div>
 				 
 				<div class="form_row">
 				<label>Email:</label>
-				<input type="text" class="form_input" name="email" id="email" value=""/>
+				<input type="text" class="form_input_short" name="email" id="email" value=""/>
 				</div>
 				
 				<div class="form_row">
 				<label>Password:</label>
-				<input type="password" class="form_input" name="password" id="password" value=""/>
+				<input type="password" class="form_input_short" name="password" id="password" value=""/>
 				</div>
 
 				<div class="form_row">

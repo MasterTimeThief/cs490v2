@@ -50,7 +50,7 @@ if(!isLoggedIn('professor')){
 		            
 		            <div class="form_row">
 			            <label>Category:</label>
-			            <select class="form_select" name="category_id">
+			            <select class="form_select_short" name="category_id">
 			            	<?php foreach($categoriesArray['data'] as $id=>$item):?>
 			            	<option value="<?=$item['id']?>" <?=($item['id']==$classArray['data']['category_id']) ? ' selected' :''?>><?=$item['code']?> - <?=$item['title']?></option>
 			            	<?php endforeach;?>
@@ -59,7 +59,7 @@ if(!isLoggedIn('professor')){
 		            
 		            <div class="form_row">
 			            <label>Status:</label>
-			            <select class="form_select" name="status">
+			            <select class="form_select_short" name="status">
 			            	<option value="open"   <?=($classArray['data']['status']=='open')   ? ' selected': ''?>>Open</option>
 			            	<option value="closed" <?=($classArray['data']['status']=='closed') ? ' selected': ''?>>Closed</option>
 			            </select>

@@ -15,7 +15,7 @@
 		<input type="radio" class="form_input" name="is_true" value="0" <?=($questionArray['data']['is_true']==0) ? ' checked' : ''?>>
 		</div>
 
-		<div class="form_sub_buttons">
+		<div class="form_row">
 			<input type="hidden" name="id" id="id" value="<?=$questionId?>">
 			<input type="submit" class="form_submit" value="Update"/>
 		</div> 

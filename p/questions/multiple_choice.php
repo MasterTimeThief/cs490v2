@@ -20,7 +20,7 @@ if(!isLoggedIn('professor')){
 
 <div id="right_wrap">
     <div id="right_content">             
-    	<h2>Fill In The Blank</h2>
+    	<h2>New "Multiple Choice" Question</h2>
 		<form name="add_multiple_choice" id="multiple_choice" method="post" action="">
 			<div class="form">
 				<div class="form_row">
@@ -30,35 +30,35 @@ if(!isLoggedIn('professor')){
 				
 				<div class="form_row">
 				<label>Choice 1:</label>
-				<input type="text" class="form_input" name="answer_1" id="answer_1" value=""/>
-				<input type="radio" class="form_input" name="which_is_correct" value="1">
+					<input type="radio" class="form_input" name="which_is_correct" value="1">
+					<input type="text" class="form_input_short" name="answer_1" id="answer_1" value=""/>
 				</div>
 				
 				<div class="form_row">
 				<label>Choice 2:</label>
-				<input type="text" class="form_input" name="answer_2" id="answer_2" value=""/>
-				<input type="radio" class="form_input" name="which_is_correct" value="2">
+					<input type="radio" class="form_input" name="which_is_correct" value="2">
+					<input type="text" class="form_input_short" name="answer_2" id="answer_2" value=""/>
 				</div>
 				
 				<div class="form_row">
 				<label>Choice 3:</label>
-				<input type="text" class="form_input" name="answer_3" id="answer_3" value=""/>
-				<input type="radio" class="form_input" name="which_is_correct" value="3">
+					<input type="radio" class="form_input" name="which_is_correct" value="3">
+					<input type="text" class="form_input_short" name="answer_3" id="answer_3" value=""/>
 				</div>
 				
 				<div class="form_row">
 				<label>Choice 4:</label>
-				<input type="text" class="form_input" name="answer_4" id="answer_4" value=""/>
-				<input type="radio" class="form_input" name="which_is_correct" value="4">
+					<input type="radio" class="form_input" name="which_is_correct" value="4">
+					<input type="text" class="form_input_short" name="answer_4" id="answer_4" value=""/>
 				</div>
 				
 				<div class="form_row">
 				<label>Choice 5:</label>
-				<input type="text" class="form_input" name="answer_5" id="answer_5" value=""/>
-				<input type="radio" class="form_input" name="which_is_correct" value="5">
+					<input type="radio" class="form_input" name="which_is_correct" value="5">
+					<input type="text" class="form_input_short" name="answer_5" id="answer_5" value=""/>
 				</div>
 
-				<div class="form_sub_buttons">
+				<div class="form_row">
 				<input type="hidden" name="question_type" id="question_type" value="multiple_choice"> 
 				<input type="hidden" name="professor_id" id="professor_id" value="1"> <!--  todo -->
 				<input type="submit" class="form_submit" value="Submit" />

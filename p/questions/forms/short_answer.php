@@ -7,11 +7,11 @@
 		 
 		<div class="form_row">
 		<label>Answer:</label>
-			<textarea rows="5" cols="50" type="text" class="form_input" name="answer_1" id="answer_1"><?= $questionArray['data']['answer_1']?></textarea>
+			<textarea rows="5" cols="50" type="text" class="form_input_tall" name="answer_1" id="answer_1"><?= $questionArray['data']['answer_1']?></textarea>
 		</div>
 
 		<div class="form_row">
-		<div class="form_sub_buttons">
+		<div class="form_row">
 			<input type="hidden" name="id" id="id" value="<?=$questionId?>">
 			<input type="submit" class="form_submit" value="Update" />
 		</div> 

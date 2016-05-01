@@ -37,22 +37,22 @@
 				
 				<div class="form_row">
 				<label>Grade Required for A+:</label>
-				<input type="text" class="form_input" name="title" id="title" value="<?$gradeAA?>" readonly/>
+				<input type="text" class="form_input_short" name="title" id="title" value="<?$gradeAA?>" readonly/>
 				</div>
 				
 				<div class="form_row">
 				<label>Grade Required for A:</label>
-				<input type="text" class="form_input" name="title" id="title" value="<?$gradeA?>" readonly/>
+				<input type="text" class="form_input_short" name="title" id="title" value="<?$gradeA?>" readonly/>
 				</div>
 				
 				<div class="form_row">
 				<label>Grade Required for B:</label>
-				<input type="text" class="form_input" name="title" id="title" value="<?$gradeB?>" readonly/>
+				<input type="text" class="form_input_short" name="title" id="title" value="<?$gradeB?>" readonly/>
 				</div>
 				
 				<div class="form_row">
 				<label>Grade Required for C:</label>
-				<input type="text" class="form_input" name="title" id="title" value="<?$gradeC?>" readonly/>
+				<input type="text" class="form_input_short" name="title" id="title" value="<?$gradeC?>" readonly/>
 				</div>
 				 
 				<div class="clear"></div>

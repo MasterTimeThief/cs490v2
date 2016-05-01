@@ -34,12 +34,12 @@ if(!isLoggedIn('professor')){
 			<div class="form">
 				<div class="form_row">
 				<label>First Name:</label>
-				<input type="text" class="form_input" name="first_name" id="first_name" value="<?=$studentArray['data']['first_name']?>"/>
+				<input type="text" class="form_input_short" name="first_name" id="first_name" value="<?=$studentArray['data']['first_name']?>"/>
 				</div>
 
 				<div class="form_row">
 				<label>Last Name:</label>
-				<input type="text" class="form_input" name="last_name" id="last_name" value="<?=$studentArray['data']['last_name']?>"/>
+				<input type="text" class="form_input_short" name="last_name" id="last_name" value="<?=$studentArray['data']['last_name']?>"/>
 				</div>
 
 				<div class="form_sub_buttons">

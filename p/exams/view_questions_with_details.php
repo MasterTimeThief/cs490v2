@@ -39,20 +39,20 @@ if(!isLoggedIn('professor')){
 					<?php if($item['question_type']=='short_answer'):?>
 						<td>
 							<div class="form_row">
-							<p><font size="3" color="#535E66" ><b>Question <?=$item['id']?>: <?=$item['question']?></b></font></p>
+							<p><font size="3" color="#535E66" ><b>Question <?=$counter+1?>: <?=$item['question']?></b></font></p>
 							</div>
 							
 							<br>
 							
 							<div class="form_row">
 							<label>Answer:</label>
-							<textarea rows="4" cols="50" type="text" class="form_input" name="answer" id="answer" readonly><?=$item['answer_1']?></textarea>
+							<textarea rows="4" cols="50" type="text" class="form_input_tall" name="answer" id="answer" readonly><?=$item['answer_1']?></textarea>
 							</div>
 						</td>
 					<?php elseif($item['question_type']=='multiple_choice'): ?>
 						<td>
 							<div>
-							<p><font size="3" color="#535E66" ><b>Question <?=$item['id']?>: <?=$item['question']?></b></font></p>
+							<p><font size="3" color="#535E66" ><b>Question <?=$counter+1?>: <?=$item['question']?></b></font></p>
 							</div>
 							
 							<br>
@@ -85,7 +85,7 @@ if(!isLoggedIn('professor')){
 					<?php elseif($item['question_type']=='true_or_false'): ?>
 						<td>
 							<div>
-							<p><font size="3" color="#535E66" ><b>Question <?=$item['id']?>: <?=$item['question']?></b></font></p>
+							<p><font size="3" color="#535E66" ><b>Question <?=$counter+1?>: <?=$item['question']?></b></font></p>
 							</div>
 							<br>
 							
@@ -102,12 +102,12 @@ if(!isLoggedIn('professor')){
 					<?php elseif($item['question_type']=='fill_in_the_blanks'): ?>
 						<td>
 							<div class="form_row">
-							<p><font size="3" color="#535E66" ><b>Question <?=$item['id']?>: <?=$item['question']?></b></font></p>
+							<p><font size="3" color="#535E66" ><b>Question <?=$counter+1?>: <?=$item['question']?></b></font></p>
 							</div>
 							<br>
 							<div class="form_row">
 							<label>Answer:</label>
-							<input type="text" class="form_input" name="answer" id="answer" value="<?=$item['answer_1']?>" readonly />
+							<input type="text" class="form_input_short" name="answer" id="answer" value="<?=$item['answer_1']?>" readonly />
 							</div>
 						</td>
 					<?php endif;?>

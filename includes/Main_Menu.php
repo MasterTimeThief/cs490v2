@@ -76,6 +76,14 @@ class Main_Menu
 										'name'=>'Add Exam',
 										'url'=>BASE_URL . '/p/exams/add_exam.php'
 								),
+								array(
+										'name'=>'Exam Questions',
+										'url'=>BASE_URL . '/p/exams/exam_questions.php'
+								),
+								array(
+										'name'=>'View Taken Exams',
+										'url'=>BASE_URL . '/p/exams/view_taken_exams.php'
+								),
 						)
 				),
 				

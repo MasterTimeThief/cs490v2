@@ -27,9 +27,8 @@ if(!isLoggedIn('professor')){
             <th>Class CODE</th>
             <th>Class Title</th>
 			<th>Exam Title</th>
-            <th>Exam Status</th>
-            <th>Edit Exam</th>
-            <th>Delete</th>
+			<th>Add Questions</th>
+			<th>View Questions</th>
         </tr>
     </thead>
         <tfoot>
@@ -46,9 +45,8 @@ if(!isLoggedIn('professor')){
             <td><?=$item['code']?></td>
             <td><?=$item['class_title']?></td>
             <td><?=$item['title']?></td>
-            <td><?=($item['is_available']) ? 'Open' : 'Closed'?></td>
-            <td><a href="<?=BASE_URL?>/p/exams/edit_exam.php?exam_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="<?=BASE_URL?>/p/exams/delete_exam.php?exam_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
+			<td><a href="<?=BASE_URL?>/p/exams/add_questions.php?exam_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
+			<td><a href="<?=BASE_URL?>/p/exams/view_questions.php?exam_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
 		</tr>
 		<?php $counter+=1;?>
   <?php endforeach; ?>

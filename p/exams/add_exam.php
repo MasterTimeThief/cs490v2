@@ -41,11 +41,21 @@ if(!isLoggedIn('professor')){
 		
 		<div class="form_row">
 			<label>Status:</label>
-			<select class="form_select" name="is_available">
+			<select class="form_select_short" name="is_available">
 				<option value="1">Open</option>
 				<option value="0">Closed</option>
 			</select>
 		</div>
+		
+		<!--div class="form_row">
+			<label>Weight:</label>
+			<select class="form_select_short" name="is_available">
+				<option value="1">1</option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="20">20</option>
+			</select>
+		</div-->
 		
 		<div class="form_row">
 			<input type="hidden" class="form_input" name="professor_id" id="professor_id" value="1"/> <!-- @todo -->

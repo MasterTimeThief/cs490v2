@@ -130,20 +130,20 @@
 					<?php if($item['question_type']=='short_answer'):?>
 						<td>
 							<div class="form_row">
-							<p><font size="3" color="#535E66" ><b>Question <?//=$item['id']?><?=$counter+1?>: <?=$item['question']?></b></font></p>
+							<p><font size="3" color="#535E66" ><b>Question <?=$counter+1?>: <?=$item['question']?></b></font></p>
 							</div>
 							
 							<br>
 							
 							<div class="form_row">
 							<label>Answer:</label>
-							<textarea rows="4" cols="50" type="text" class="form_input" name="student_answer[<?=$item['id']?>]"></textarea>
+							<textarea rows="4" cols="50" type="text" class="form_input_tall" name="student_answer[<?=$item['id']?>]"></textarea>
 							</div>
 						</td>
 					<?php elseif($item['question_type']=='multiple_choice'): ?>
 						<td>
 							<div>
-							<p><font size="3" color="#535E66" ><b>Question <?//=$item['id']?><?=$counter+1?>: <?=$item['question']?></b></font></p>
+							<p><font size="3" color="#535E66" ><b>Question <?=$counter+1?>: <?=$item['question']?></b></font></p>
 							</div>
 							
 							<br>
@@ -176,7 +176,7 @@
 					<?php elseif($item['question_type']=='true_or_false'): ?>
 						<td>
 							<div>
-							<p><font size="3" color="#535E66" ><b>Question <?//=$item['id']?><?=$counter+1?>: <?=$item['question']?></b></font></p>
+							<p><font size="3" color="#535E66" ><b>Question <?=$counter+1?>: <?=$item['question']?></b></font></p>
 							</div>
 							
 							<br>
@@ -194,14 +194,14 @@
 					<?php elseif($item['question_type']=='fill_in_the_blanks'): ?>
 						<td>
 							<div class="form_row">
-							<p><font size="3" color="#535E66" ><b>Question <?//=$item['id']?><?=$counter+1?>: <?=$item['question']?></b></font></p>
+							<p><font size="3" color="#535E66" ><b>Question <?=$counter+1?>: <?=$item['question']?></b></font></p>
 							</div>
 							
 							<br>
 							
 							<div class="form_row">
 							<label>Answer:</label>
-							<input type="text" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value=""/>
+							<input type="text" class="form_input_short" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value=""/>
 							</div>
 						</td>
 					<?php endif;?>
