@@ -25,6 +25,7 @@ if(!isLoggedIn('professor')){
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
+					<th>Add Classes</th>
 					<th>Edit</th>
 					<th>Delete</th>
 				</tr>
@@ -42,6 +43,7 @@ if(!isLoggedIn('professor')){
 					<td><?=$item['first_name']?></td>
 					<td><?=$item['last_name']?></td>
 					<td><?=$item['email']?></td>
+					<td><a href="<?=BASE_URL?>/p/students/add_classes.php?student_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
 					<td><a href="<?=BASE_URL?>/p/students/edit_student.php?student_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
 					<td><a href="<?=BASE_URL?>/p/students/delete_student.php?student_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
 				</tr>
