@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$_SESSION['role'] 		= $responseArray['data']['role'];
 		
 		if($responseArray['data']['role'] == 'professor'){
-			header('Location: ' .BASE_URL . '/p/index/index.php');
+			header('Location: ' .BASE_URL . '/p/classes/classes.php');
 			exit;
 		} else if($responseArray['data']['role'] == 'student'){
 			header('Location: ' .BASE_URL . '/s/classes/classes.php');
