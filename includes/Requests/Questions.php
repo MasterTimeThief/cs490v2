@@ -46,6 +46,15 @@ class Includes_Requests_Questions extends Includes_Requests_Abstract
 		return $response;
 	}
 	
+	public function deleteQuestionFromExam($id)
+	{
+		$url = ENDPOINT . "/delete_question_from_exam";
+		$response = parent::request($url, '','POST', array('id'=>$id));
+		return $response;
+	}
+	
+	
+	
 	public function updateQuestion($data)
 	{
 		$url = ENDPOINT . "/update_question";
