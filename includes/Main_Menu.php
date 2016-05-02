@@ -7,7 +7,7 @@ class Main_Menu
 	public function __construct()
 	{
 		$this->_ProfessorsMenu = array(
-				'index' => array(
+			/*	'index' => array(
 						'name'=>'Index',
 						'url'=> BASE_URL . '/p/index/index.php',
 						'links'=>array(
@@ -28,7 +28,7 @@ class Main_Menu
 										'url'=>BASE_URL . '/p/index/categories.php'
 								),
 						)
-				),
+				),*/
 				'classes' => array(
 						'name'=>'Classes',
 						'url'=>BASE_URL . '/p/classes/classes.php',
@@ -41,11 +41,15 @@ class Main_Menu
 										'name'=>'Add Class',
 										'url'=>BASE_URL . '/p/classes/add_class.php'
 								),
-								array(
+								/*array(
 										'name'=>'Cancelled Class',
 										'url'=>BASE_URL . '/p/classes/cancelled_classes.php'
+								),*/
+								array(
+										'name'=>'Edit Class',
+										'url'=>BASE_URL . '/p/classes/edit_class.php',
+										'auto_display'=>0
 								),
-								
 						)
 				),
 				
@@ -61,6 +65,16 @@ class Main_Menu
 								array(
 										'name'=>'Add Student',
 										'url'=>BASE_URL . '/p/students/add_student.php'
+								),
+								array(
+										'name'=>'Registration',
+										'url'=>BASE_URL . '/p/students/add_classes.php',
+										'auto_display'=>0
+								),
+								array(
+										'name'=>'Edit Student',
+										'url'=>BASE_URL . '/p/students/edit_student.php',
+										'auto_display'=>0
 								),
 						)
 				),
@@ -83,6 +97,21 @@ class Main_Menu
 								array(
 										'name'=>'View Taken Exams',
 										'url'=>BASE_URL . '/p/exams/view_taken_exams.php'
+								),
+								array(
+										'name'=>'Edit Exam',
+										'url'=>BASE_URL . '/p/exams/edit_exam.php',
+										'auto_display'=>0
+								),
+								array(
+										'name'=>'Add Question',
+										'url'=>BASE_URL . '/p/exams/add_questions.php',
+										'auto_display'=>0
+								),
+								array(
+										'name'=>'View Question',
+										'url'=>BASE_URL . '/p/exams/view_questions.php',
+										'auto_display'=>0
 								),
 						)
 				),
@@ -113,6 +142,12 @@ class Main_Menu
 								array(
 										'name'=>'Short Answer',
 										'url'=>BASE_URL . '/p/questions/short_answer.php'
+								),
+								
+								array(
+										'name'=>'Edit Question',
+										'url'=>BASE_URL . '/p/questions/edit_question.php',
+										'auto_display'=>0
 								),
 						)
 				),
@@ -145,6 +180,11 @@ class Main_Menu
 								array(
 										'name'=>'View Grades',
 										'url'=>BASE_URL . '/s/exams/add_exam.php'
+								),
+								array(
+										'name'=>'View Results',
+										'url'=>BASE_URL . '/s/exams/view_results.php',
+										'auto_display'=>0
 								),
 						)
 				),

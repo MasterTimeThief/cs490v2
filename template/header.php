@@ -48,6 +48,9 @@ $parent = $menuObject->get_parent($page,$menuType);
     		<div class="submenu">
 			    <ul>
 			    <?php foreach($menu[$parent]['links'] as $subindex=>$item):?>
+			    	<?php if(isset($item['auto_display']) && $item['auto_display']==0):?>
+			    	<?php continue;?>
+			    	<?php endif;?>
 			    	<?php $p = basename($item['url']);?>
 			    	<li><a href="<?=$item['url']?>" <?=($p==$current_page) ? 'class="selected"' : '' ?>><?=$item['name']?></a></li>
 			    <?php endforeach;?>
