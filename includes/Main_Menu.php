@@ -165,7 +165,8 @@ class Main_Menu
 								),
 								array(
 										'name'=>'Class Details',
-										'url'=>BASE_URL . '/s/classes/class_details.php'
+										'url'=>BASE_URL . '/s/classes/class_details.php',
+										'auto_display'=>0
 								),
 						)
 				),
