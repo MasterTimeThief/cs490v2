@@ -59,4 +59,11 @@ class Includes_Requests_Exams extends Includes_Requests_Abstract
 		$response = parent::request($url, '','POST', array('id'=>$id));
 		return $response;
 	}
+	
+	public function getExamsByStudentId($id)
+	{
+		$url = ENDPOINT . '/get_exam_by_student_id/'. $id;
+		$response = parent::request($url, '','GET', null);
+		return $response;
+	}
 }

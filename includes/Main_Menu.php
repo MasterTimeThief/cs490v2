@@ -186,6 +186,11 @@ class Main_Menu
 										'url'=>BASE_URL . '/s/exams/view_results.php',
 										'auto_display'=>0
 								),
+								array(
+										'name'=>'Take Exam',
+										'url'=>BASE_URL . '/s/exams/take_exam.php',
+										'auto_display'=>0
+								),
 						)
 				),
 		);

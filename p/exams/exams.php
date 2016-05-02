@@ -8,10 +8,9 @@ if(!isLoggedIn('professor')){
 }
 ?>
 <?php require_once '../../template/header.php'; ?>
-
 <?php 
 	$api = Includes_Requests_Factory::create('exams',array());
-	$exams = $api->getExamsByProfessorId(1); // Todo
+	$exams = $api->getExamsByProfessorId($_SESSION['id']); // Todo
 	$examsArray = json_decode($exams['body'],true);
 ?>
 

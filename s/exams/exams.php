@@ -10,9 +10,7 @@ if(!isLoggedIn('student')){
 <?php require_once '../../template/header.php'; ?>
 
 <?php
-	$api = Includes_Requests_Factory::create('students',array());
 	$student_id = $_SESSION['id'];
-	
 	$api = Includes_Requests_Factory::create('exams',array());
 	$exams = $api->getExamsByStudentId($student_id); // Todo
 	$examsArray = json_decode($exams['body'],true);
@@ -29,7 +27,7 @@ if(!isLoggedIn('student')){
 		            <th>Class Title</th>
 					<th>Exam Title</th>
 		            <th>Exam Status</th>
-		            <th>Take Exam</th>
+		            <th>Actions</th>
 		        </tr>
 		    </thead>
 		        <tfoot>
@@ -47,7 +45,16 @@ if(!isLoggedIn('student')){
 		            <td><?=$item['class_title']?></td>
 		            <td><?=$item['title']?></td>
 		            <td><?=($item['is_available']) ? 'Open' : 'Closed'?></td>
-		            <td><a href="<?=BASE_URL?>/s/exams/take_exam.php?exam_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
+		            <td>
+						   <?php //dd($item);?>		            
+		            	<?php if($item['is_complete']==1): ?>
+		            		<a href="<?=BASE_URL?>/s/exams/view_results.php?exam_id=<?=$item['id']?>&class_id=<?=$item['class_id']?>">View</a>
+		            	<?php elseif($item['is_available']==0):?>
+		            		<span>Not Available</span>
+		            	<?php else: ?>
+		            		<a href="<?=BASE_URL?>/s/exams/take_exam.php?exam_id=<?=$item['id']?>&class_id=<?=$item['class_id']?>">Take</a>
+		            	<?php endif; ?>
+		            </td>
 				</tr>
 				<?php $counter+=1;?>
 		  <?php endforeach; ?>
