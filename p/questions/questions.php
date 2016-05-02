@@ -44,7 +44,28 @@ if(!isLoggedIn('professor')){
 				<tr class="<?=$class?>">
 					<td><?=$item['id']?></td>
 					<td><?=$item['question']?></td>
-					<td><?=$item['question_type']?></td>
+					<td>
+						<?php
+								$label='Unknow';
+								switch($item['question_type']){
+									case 'true_or_false':
+										$label='True or False';
+										break;
+									case 'multiple_choice':
+										$label='Multiple Choice';
+										break;
+									case 'fill_in_the_blanks':
+										$label='Fill in the Blanks';
+										break;
+									case 'short_answer':
+										$label='Short Answer';
+										break;
+									default:
+										break;
+								}
+						?>
+						<?=$label?>
+					</td>
 					<td><a href="<?=BASE_URL?>/p/questions/edit_question.php?question_id=<?=$item['id']?>&question_type=<?=$item['question_type']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
 					<td><a href="<?=BASE_URL?>/p/questions/delete_question.php?question_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
 				</tr>
