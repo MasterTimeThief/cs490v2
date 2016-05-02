@@ -11,10 +11,10 @@ if(!isLoggedIn('student')){
 
 <?php 
 	$api = Includes_Requests_Factory::create('students',array());
-	if(empty($_GET['student_id'])){
+	if(empty($_SESSION['id'])){
 		header('Location: ' . BASE_URL . '/s/exams/exams.php' ) ;
 	}
-	$student_id = $_GET['student_id'];
+	$student_id = $_SESSION['id'];
 	
 	$api = Includes_Requests_Factory::create('exams',array());
 	$exams = $api->getGradedExamsByStudentId($student_id); // Todo

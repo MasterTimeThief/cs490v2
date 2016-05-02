@@ -56,16 +56,14 @@ if(!isLoggedIn('student')){
 									$numberOfCorrectAnswers+=1;
 								}
 							?>
-							<div class="form_row">
-							<p><font size="3" color="#535E66" ><b>Question <?=$counter+1?>: <?=$item['question']?></b></font></p>
+							<div>
+							<p><font size="3" color="#535E66" ><b>Question <?=$counter+1?>: <?=$item['question']?>     <img src="<?=BASE_URL?>/assets/images/<?=($isCorrect) ? 'right' : 'wrong'?>.png"/></b></font></p>
 							</div>
-							
-							<p>You Answer is: <?=($isCorrect) ? ' CORRECT' : 'INCORRECT'?></p>
 							<p>Possible Correct Answer Is: <?=$item['answer_1']?></p>
 							
 							<div class="form_row">
 							<label>Answer:</label>
-							<textarea rows="4" cols="50" type="text" class="form_input" name="student_answer[<?=$item['id']?>]"><?=$studentAnswer?></textarea>
+							<textarea rows="4" cols="50" type="text" class="form_input" name="student_answer[<?=$item['id']?>]" readonly><?=$studentAnswer?></textarea>
 							</div>
 						</td>
 					<?php elseif($item['question_type']=='multiple_choice'): ?>
@@ -75,10 +73,8 @@ if(!isLoggedIn('student')){
 								$correctAnswer = $item['which_is_correct'];
 							?>
 							<div>
-							<p><font size="3" color="#535E66" ><b>Question <?=$counter+1?>: <?=$item['question']?></b></font></p>
+							<p><font size="3" color="#535E66" ><b>Question <?=$counter+1?>: <?=$item['question']?>     <img src="<?=BASE_URL?>/assets/images/<?=($studentAnswer==$correctAnswer) ? 'right' : 'wrong'?>.png"/></b></font></p>
 							</div>
-
-							<p>You Answer is: <?=($studentAnswer==$correctAnswer) ? ' CORRECT' : 'INCORRECT'?></p>
 							<p>Correct Answer Is: <?=($item['answer_'. $correctAnswer])?></p>
 							
 							<?php 
@@ -90,27 +86,27 @@ if(!isLoggedIn('student')){
 
 							<div class="form_row">
 							<label><?=$item['answer_1']?>:</label>
-							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="1" <?=($studentAnswer==1) ? ' checked': ''?>>
+							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="1" <?=($studentAnswer==1) ? ' checked': 'disabled'?>>
 							</div>
 							
 							<div class="form_row">
 							<label><?=$item['answer_2']?>:</label>
-							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="2" <?=($studentAnswer==2) ? ' checked': ''?>>
+							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="2" <?=($studentAnswer==2) ? ' checked': 'disabled'?>>
 							</div>
 							
 							<div class="form_row">
 							<label><?=$item['answer_3']?>:</label>
-							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="3" <?=($studentAnswer==3) ? ' checked': ''?>>
+							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="3" <?=($studentAnswer==3) ? ' checked': 'disabled'?>>
 							</div>
 							
 							<div class="form_row">
 							<label><?=$item['answer_4']?>:</label>
-							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="4" <?=($studentAnswer==4) ? ' checked': ''?>>
+							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="4" <?=($studentAnswer==4) ? ' checked': 'disabled'?>>
 							</div>
 							
 							<div class="form_row">
 							<label><?=$item['answer_5']?>:</label>
-							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="5" <?=($studentAnswer==5) ? ' checked': ''?>>
+							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="5" <?=($studentAnswer==5) ? ' checked': 'disabled'?>>
 							</div>
 						</td>
 					<?php elseif($item['question_type']=='true_or_false'): ?>
@@ -124,15 +120,14 @@ if(!isLoggedIn('student')){
 								}
 							?>
 							<div>
-							<p><font size="3" color="#535E66" ><b>Question <?=$item['id']?><?php //$counter+1?>: <?=$item['question']?></b></font></p>
+							<p><font size="3" color="#535E66" ><b>Question <?//=$item['id']?><?php $counter+1?>: <?=$item['question']?>     <img src="<?=BASE_URL?>/assets/images/<?=($isCorrect) ? 'right' : 'wrong'?>.png"/></b></font></p>
 							</div>
-								<p>You Answer is: <?=($isCorrect) ? ' CORRECT' : 'INCORRECT'?></p>
 								<p>Correct Answer Is: <?=($item['is_true']) ? 'TRUE' : 'FALSE'?>
 							<div class="form_row">
 							<label>True:</label>
-							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="1" <?=($studentAnswersArray['data'][$item['id']]['answer']==1)? ' checked' : ''?>>
+							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="1" <?=($studentAnswersArray['data'][$item['id']]['answer']==1)? ' checked' : 'disabled'?>>
 							<label>False:</label>
-							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="0" <?=($studentAnswersArray['data'][$item['id']]['answer']==0)? ' checked' : ''?>>
+							<input type="radio" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="0" <?=($studentAnswersArray['data'][$item['id']]['answer']==0)? ' checked' : 'disabled'?>>
 							</div>
 						</td>
 					<?php elseif($item['question_type']=='fill_in_the_blanks'): ?>
@@ -140,11 +135,10 @@ if(!isLoggedIn('student')){
 							<?php 
 								$answer = $studentAnswersArray['data'][$item['id']]['answer'];
 							?>
-							<div class="form_row">
-							<p><font size="3" color="#535E66" ><b>Question <?//=$item['id']?><?=$counter+1?>: <?=$item['question']?></b></font></p>
+							<div>
+							<p><font size="3" color="#535E66" ><b>Question <?//=$item['id']?><?=$counter+1?>: <?=$item['question']?>     <img src="<?=BASE_URL?>/assets/images/<?=($item['answer_1'] == $answer) ? 'right' : 'wrong'?>.png" /></b></font></p>
 							</div>
-							<p>You Answer is: <?=($item['answer_1'] == $answer) ? ' CORRECT' : 'INCORRECT'?></p>
-							<p>Correct Answer Is: <?=($item['answer_1'])?>
+								<p>Correct Answer Is: <?=($item['answer_1'])?>
 							<?php 
 								if($item['answer_1'] == $answer){
 									$numberOfCorrectAnswers+=1;
@@ -152,7 +146,7 @@ if(!isLoggedIn('student')){
 							?>
 							<div class="form_row">
 							<label>Answer:</label>
-							<input type="text" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="<?=$studentAnswersArray['data'][$item['id']]['answer']?>"/>
+							<input type="text" class="form_input" name="student_answer[<?=$item['id']?>]" id="student_answer[<?=$item['id']?>]" value="<?=$studentAnswersArray['data'][$item['id']]['answer']?>" readonly/>
 							</div>
 						</td>
 					<?php endif;?>
