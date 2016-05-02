@@ -11,7 +11,7 @@ if(!isLoggedIn('professor')){
 
 <?php 
 	$api = Includes_Requests_Factory::create('exams',array());
-	$exams = $api->getTakenExamsByProfessorId(1); // Todo
+	$exams = $api->getTakenExamsByProfessorId($_SESSION['id']); // Todo
 	$examsArray = json_decode($exams['body'],true);
 ?>
 
