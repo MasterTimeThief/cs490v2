@@ -10,12 +10,12 @@ if(!isLoggedIn('student')){
 <?php require_once '../../template/header.php'; ?>
 
 <?php
-	$api = Includes_Requests_Factory::create('exams',array());
 	if(empty($_GET['exam_id']) || empty($_GET['class_id'])){
 		header('Location: ' . BASE_URL . '/s/exams/exams.php' ) ;
 	}
 	$examId = $_GET['exam_id'];
 	$classId = $_GET['class_id'];
+	
 	$api = Includes_Requests_Factory::create('questions',array());
 	
 	$grades = $api->getStudentGrade($examId,$_SESSION['id']);
@@ -135,14 +135,14 @@ if(!isLoggedIn('student')){
 			 );
 			 $response = $api->addStudentGrade($data);
 		 }
-		header("Location: " .BASE_URL . "/s/exams/view_results.php?exam_id={$examId}&class_id={$classId}");
+		header("Location: " .BASE_URL . "/s/exams/exams.php");
 		exit;
 	}
 ?>
 <div id="right_wrap">
 	<p><?=$msg->display()?></p>
 	<div id="right_content">
-	<h2>View Questions</h2>
+	<h2>Take Exam ""</h2>
 	<form name="add_multiple_choice" id="multiple_choice" method="post" action="">
 		<table id="rounded-corner">
 			<tfoot>

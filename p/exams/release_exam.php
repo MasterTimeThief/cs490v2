@@ -15,7 +15,12 @@ if(!isLoggedIn('professor')){
 		header('Location: ' . BASE_URL . 'p/exams/exams.php' ) ;
 	}
 	$exam_id = $_GET['exam_id'];
+	
+	if(empty($_GET['student_id'])){
+		header('Location: ' . BASE_URL . 'p/exams/exams.php' ) ;
+	}
+	$student_id = $_GET['student_id'];
 
-	$data = $api->releaseExamById($exam_id);
+	$data = $api->releaseExamById($exam_id,$student_id);
 	$msg->success('Record Updated');
 	header('Location: ' . $_SERVER['HTTP_REFERER']);

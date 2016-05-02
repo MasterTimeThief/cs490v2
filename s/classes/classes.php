@@ -25,6 +25,7 @@ if(!isLoggedIn('student')){
 					<th>Code</th>
 					<th>Title</th>
 					<th>View Details</th>
+					<th>What Do I Need?</th>
 				</tr>
 			</thead>
 				<tfoot>
@@ -39,9 +40,8 @@ if(!isLoggedIn('student')){
 				<tr class="<?=$class?>">
 					<td><?=$item['code']?></td>
 					<td><?=$item['title']?></td>
-					<td>
-						<a href="<?=BASE_URL?>/s/classes/class_details.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a>
-					</td>
+					<td><a href="<?=BASE_URL?>/s/classes/class_details.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/view.png"/></a></td>
+					<td><a href="<?=BASE_URL?>/s/classes/class_minimum.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/view.png"/></a></td>
 				</tr>
 				<?php $counter+=1;?>
 			<?php endforeach; ?>

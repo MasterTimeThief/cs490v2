@@ -14,6 +14,9 @@ if(!isLoggedIn('student')){
 	$api = Includes_Requests_Factory::create('exams',array());
 	$exams = $api->getExamsByStudentId($student_id); // Todo
 	$examsArray = json_decode($exams['body'],true);
+	
+	$questionApi = Includes_Requests_Factory::create('questions',array());
+	//dd($examsArray);
 ?>
 
 <div id="right_wrap">
@@ -26,8 +29,7 @@ if(!isLoggedIn('student')){
 		            <th>Class CODE</th>
 		            <th>Class Title</th>
 					<th>Exam Title</th>
-		            <th>Exam Status</th>
-		            <th>Actions</th>
+		            <th>Take</th>
 		        </tr>
 		    </thead>
 		        <tfoot>
@@ -38,25 +40,22 @@ if(!isLoggedIn('student')){
 		    <tbody>
 		    <?php $counter = 0; ?>
 		    <?php foreach($examsArray['data'] as $id=>$item):?>
+		    <?php 
+			    $grades = $questionApi->getStudentGrade($item['id'],$_SESSION['id']);
+			    $gradesArray = json_decode($grades['body'],true);
+			    //dd($gradesArray['data']);
+		    ?>
 				<?php $class = ($counter % 2) ? 'even' : 'odd';?>
+				<?php if($item['is_complete']==0 && $item['is_available']==1 && empty($gradesArray['data'])): ?>
 		    	<tr class="<?=$class?>">
 		            <td><?=$item['id']?></td>
 		            <td><?=$item['code']?></td>
 		            <td><?=$item['class_title']?></td>
 		            <td><?=$item['title']?></td>
-		            <td><?=($item['is_available']) ? 'Open' : 'Closed'?></td>
-		            <td>
-						   <?php //dd($item);?>		            
-		            	<?php if($item['is_complete']==1): ?>
-		            		<a href="<?=BASE_URL?>/s/exams/view_results.php?exam_id=<?=$item['id']?>&class_id=<?=$item['class_id']?>">View</a>
-		            	<?php elseif($item['is_available']==0):?>
-		            		<span>Not Available</span>
-		            	<?php else: ?>
-		            		<a href="<?=BASE_URL?>/s/exams/take_exam.php?exam_id=<?=$item['id']?>&class_id=<?=$item['class_id']?>">Take</a>
-		            	<?php endif; ?>
-		            </td>
+		            <td><a href="<?=BASE_URL?>/s/exams/take_exam.php?exam_id=<?=$item['id']?>&class_id=<?=$item['class_id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png"/></a></td>
 				</tr>
 				<?php $counter+=1;?>
+				<?php endif?>
 		  <?php endforeach; ?>
 		        
 		    </tbody>
