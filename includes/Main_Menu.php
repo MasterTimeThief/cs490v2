@@ -179,7 +179,7 @@ class Main_Menu
 								),
 								array(
 										'name'=>'View Grades',
-										'url'=>BASE_URL . '/s/exams/add_exam.php'
+										'url'=>BASE_URL . '/s/exams/view_grades.php'
 								),
 								array(
 										'name'=>'View Results',

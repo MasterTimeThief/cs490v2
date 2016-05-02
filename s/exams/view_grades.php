@@ -11,12 +11,7 @@ if(!isLoggedIn('student')){
 
 <?php 
 	$api = Includes_Requests_Factory::create('students',array());
-	if(empty($_GET['student_id'])){
-		header('Location: ' . BASE_URL . '/s/exams/exams.php' ) ;
-	}
-	$student_id = $_GET['student_id'];
-	
-	$api = Includes_Requests_Factory::create('exams',array());
+	$student_id = $_SESSION['id'];
 	$exams = $api->getGradedExamsByStudentId($student_id); // Todo
 	$examsArray = json_decode($exams['body'],true);
 ?>

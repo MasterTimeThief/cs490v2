@@ -45,4 +45,11 @@ class Includes_Requests_Students extends Includes_Requests_Abstract
 		$response = parent::request($url, '','POST', null);
 		return $response;
 	}
+	
+	public function getGradedExamsByStudentId($id)
+	{
+		$url = ENDPOINT . "/get_graded_exams_by_student_id/$id";
+		$response = parent::request($url, '','GET', null);
+		return $response;
+	}
 }
