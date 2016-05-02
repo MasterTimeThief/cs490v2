@@ -40,8 +40,7 @@ if(!isLoggedIn('student')){
 					<td><?=$item['code']?></td>
 					<td><?=$item['title']?></td>
 					<td>
-						<a href="<?=BASE_URL?>/s/classes/class_minimum.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a>
-						<a href="<?=BASE_URL?>/s/classes/class_details.php?class_id=<?=$item['id']?>">Details</a>
+						<a href="<?=BASE_URL?>/s/classes/class_details.php?class_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a>
 					</td>
 				</tr>
 				<?php $counter+=1;?>
