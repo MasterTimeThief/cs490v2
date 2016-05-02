@@ -24,7 +24,7 @@ if(!isLoggedIn('professor')){
 <div id="right_wrap">
 	<p><?=$msg->display();?></p>
     <div id="right_content">             
-    <h2>Available Exams</h2> 
+    <h2>Taken Exams</h2> 
 		<table id="rounded-corner">
 		    <thead>
 		    	<tr>

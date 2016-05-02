@@ -14,11 +14,12 @@ if(!isLoggedIn('student')){
 	$student_id = $_SESSION['id'];
 	$exams = $api->getGradedExamsByStudentId($student_id); // Todo
 	$examsArray = json_decode($exams['body'],true);
+	//dd($examsArray);
 ?>
 
 <div id="right_wrap">
     <div id="right_content">             
-    <h2>Available Exams</h2> 
+    <h2>Graded Exams</h2> 
 		<table id="rounded-corner">
 		    <thead>
 		    	<tr>

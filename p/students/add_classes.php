@@ -51,7 +51,7 @@ if(!isLoggedIn('professor')){
 	<p><?=$msg->display();?></p>
 	<div id="right_content">
 	<form name="add_classes_to_student" method="post" action="">
-	<h2>Add Questions</h2>
+	<h2>Add Classes</h2>
 		<table id="rounded-corner">
 			<thead>
 				<tr>

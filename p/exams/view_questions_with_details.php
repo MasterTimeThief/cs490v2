@@ -23,7 +23,7 @@ if(!isLoggedIn('professor')){
 ?>
 <div id="right_wrap">
 	<div id="right_content">
-	<h2>View Questions</h2>
+	<h2>View Questions With Details</h2>
 		<table id="rounded-corner">
 			<tfoot>
 				<tr>

@@ -29,68 +29,60 @@ if(!isLoggedIn('student')){
 
 <div id="right_wrap">
 	<div id="right_content">
-		<h2><?=($classArray['data']['title'])?></h2>
-		<p>Status: <?=($classArray['data']['status'])?></p>
-		<p>Code: <?=($classArray['data']['code'])?></p>
-		
-		
+		<h2><?=($classArray['data']['code'])?> - <?=($classArray['data']['title'])?></h2>
+		<!--p>Status: <?=($classArray['data']['status'])?></p-->
 		<table id="rounded-corner">
-				    <thead>
-				    	<tr>
-				            <th>Title</th>
-				            <th>Grade</th>
-				            <th>View</th>
-				        </tr>
-				    </thead>
-				        <tfoot>
-				    	<tr>
-				        	<td colspan="12"></td>
-				        </tr>
-				    </tfoot>
-				    <tbody>
-				    <?php $counter = 0; ?>
-				    <?php foreach($examsArray['data'] as $id=>$item):?>
-				    <?php 
-					    $grades = $questionApi->getStudentGrade($item['id'],$_SESSION['id']);
-					    $gradesArray = json_decode($grades['body'],true);
-					    dd($gradesArray['data']);
-				    ?>
-						<?php $class = ($counter % 2) ? 'even' : 'odd';?>
-						<?php if(!empty($gradesArray['data'])): ?>
-				    	<tr class="<?=$class?>">
-				            <td><?=$item['title']?></td>
-				            <td>
-				            	<?//=($item['is_available']) ? 'Open' : 'Closed' ?>
-				            	<?php 
-					            	if(!empty($gradesArray['data']) && $gradesArray['data']['is_complete']==2){
-					            		echo $gradesArray['data']['grade'];
-					            	} else if($gradesArray['data']['is_complete']==1){
-					            		echo "<a href='#'>Not Available</a>";
-					            	}
-					            ?>
-				            </td>
-				            <td>
-				            <?php 
-				            	if(!empty($gradesArray['data']) && $gradesArray['data']['is_complete']==2){
-				            		//dd($gradesArray['data']);
-				            		echo "<a href='".BASE_URL. "/s/exams/view_results.php?exam_id=".$item['id']."&class_id=".$class_id."'>View</a>";
-				            	} else if($gradesArray['data']['is_complete']==1){
-				            		echo "<a href='#'>Not Available</a>";
-				            	}
-				            ?>
-				            </td>
-						</tr>
-						<?php $counter+=1;?>
-						<?php endif?>
-				  <?php endforeach; ?>
-				        
-				    </tbody>
+		    <thead>
+		    	<tr>
+		            <th>Title</th>
+		            <th>Grade</th>
+		            <th>View</th>
+		        </tr>
+		    </thead>
+		        <tfoot>
+		    	<tr>
+		        	<td colspan="12"></td>
+		        </tr>
+		    </tfoot>
+		    <tbody>
+		    <?php $counter = 0; ?>
+		    <?php foreach($examsArray['data'] as $id=>$item):?>
+		    <?php 
+			    $grades = $questionApi->getStudentGrade($item['id'],$_SESSION['id']);
+			    $gradesArray = json_decode($grades['body'],true);
+			    //dd($gradesArray['data']);
+		    ?>
+				<?php $class = ($counter % 2) ? 'even' : 'odd';?>
+				<?php if(!empty($gradesArray['data'])): ?>
+		    	<tr class="<?=$class?>">
+		            <td><?=$item['title']?></td>
+		            <td>
+		            	<?//=($item['is_available']) ? 'Open' : 'Closed' ?>
+		            	<?php 
+			            	if(!empty($gradesArray['data']) && $gradesArray['data']['is_complete']==2){
+			            		echo $gradesArray['data']['grade'];
+			            	} else if($gradesArray['data']['is_complete']==1){
+			            		echo "<a href='#'>Not Available</a>";
+			            	}
+			            ?>
+		            </td>
+		            <td>
+		            <?php 
+		            	if(!empty($gradesArray['data']) && $gradesArray['data']['is_complete']==2){
+		            		//dd($gradesArray['data']);
+		            		echo "<a href='".BASE_URL. "/s/exams/view_results.php?exam_id=".$item['id']."&class_id=".$class_id."'>View</a>";
+		            	} else if($gradesArray['data']['is_complete']==1){
+		            		echo "<a href='#'>Not Available</a>";
+		            	}
+		            ?>
+		            </td>
+				</tr>
+				<?php $counter+=1;?>
+				<?php endif?>
+		  <?php endforeach; ?>
+		        
+		    </tbody>
 		</table>
-		
-		
-		
-		
-		
 	</div>
 </div>
 <?php require_once '../../template/footer.php'; ?>

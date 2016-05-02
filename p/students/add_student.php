@@ -21,7 +21,7 @@ if(!isLoggedIn('professor')){
 
 <div id="right_wrap">
 	<div id="right_content">             
-	<h2>Add Students</h2>
+	<h2>Add Student</h2>
 		<form name="add_class" method="post" action="">
 			<div class="form">
 				<div class="form_row">
