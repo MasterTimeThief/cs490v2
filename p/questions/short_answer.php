@@ -29,8 +29,18 @@ if(!isLoggedIn('professor')){
 				</div>
 
 				<div class="form_row">
-				<label>Answer:</label>
+				<label>Input:</label>
 				<textarea rows="5" cols="50" class="form_input_tall" name="answer_1" id="answer_1"></textarea>
+				</div>
+				
+				<div class="form_row">
+				<label>Suggested function:</label>
+				<textarea rows="5" cols="50" class="form_input_tall" name="answer_2" id="answer_2"></textarea>
+				</div>
+				
+				<div class="form_row">
+				<label>Desired Output:</label>
+				<textarea rows="5" cols="50" class="form_input_short" name="answer_3" id="answer_3"></textarea>
 				</div>
 
 				<div class="form_row">

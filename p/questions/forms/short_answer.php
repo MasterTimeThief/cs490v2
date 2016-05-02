@@ -4,11 +4,22 @@
 		<label>Question:</label>
 		<input type="text" class="form_input" name="question" id="question" value="<?= $questionArray['data']['question']?>"/>
 		</div>
-		 
+		
 		<div class="form_row">
-		<label>Answer:</label>
-			<textarea rows="5" cols="50" type="text" class="form_input_tall" name="answer_1" id="answer_1"><?= $questionArray['data']['answer_1']?></textarea>
+		<label>Input:</label>
+		<textarea rows="5" cols="50" class="form_input_tall" name="answer_1" id="answer_1"><?= $questionArray['data']['answer_1']?></textarea>
 		</div>
+		
+		<div class="form_row">
+		<label>Suggested function:</label>
+		<textarea rows="5" cols="50" class="form_input_tall" name="answer_2" id="answer_2"><?= $questionArray['data']['answer_2']?></textarea>
+		</div>
+		
+		<div class="form_row">
+		<label>Desired Output:</label>
+		<textarea rows="5" cols="50" class="form_input_tall" name="answer_3" id="answer_3"><?= $questionArray['data']['answer_3']?></textarea>
+		</div>
+
 
 		<div class="form_row">
 		<div class="form_row">

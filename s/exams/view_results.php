@@ -59,10 +59,10 @@ if(!isLoggedIn('student')){
 							<div>
 							<p><font size="3" color="#535E66" ><b>Question <?=$counter+1?>: <?=$item['question']?>     <img src="<?=BASE_URL?>/assets/images/<?=($isCorrect) ? 'right' : 'wrong'?>.png"/></b></font></p>
 							</div>
-							<p>Possible Correct Answer Is: <?=$item['answer_1']?></p>
+							<p>Possible Correct Answer Is: <?=$item['answer_2']?></p>
 							
 							<div class="form_row">
-							<label>Answer:</label>
+							<label>Your Answer:</label>
 							<textarea rows="4" cols="50" type="text" class="form_input" name="student_answer[<?=$item['id']?>]" readonly><?=$studentAnswer?></textarea>
 							</div>
 						</td>
