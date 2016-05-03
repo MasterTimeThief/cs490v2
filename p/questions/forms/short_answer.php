@@ -17,7 +17,7 @@
 		
 		<div class="form_row">
 		<label>Desired Output:</label>
-		<textarea rows="5" cols="50" class="form_input_tall" name="answer_3" id="answer_3"><?= $questionArray['data']['answer_3']?></textarea>
+		<input type="text" class="form_input_short" name="answer_3" id="answer_3" value="<?= $questionArray['data']['answer_3']?>"/>
 		</div>
 
 

@@ -99,13 +99,32 @@ if(!isLoggedIn('student')){
 					$response = $api->insertStudentAnswer($data);
 
 				} else if($question['question_type']=='short_answer') {
-					$correctAnswer = trim(strtolower($question['answer_1']));
+					$inputString = $question['answer_1'];
+					$functionString = $question['answer_2'];
+					$outputString = $question['answer_3'];
+					
+					$testString = $functionString . $inputString;
+					$testOutput = '';
+					eval($testString);
+					//dd("(" . $testOutput . ")   (" . $outputString . ")");
+					//exit;
 					$data['question_type'] = 'short_answer';
 					$data['answer']= trim(strtolower($studentAnswer));
-					
 					// Do PHP unit here
-					$data['is_correct']	= 0;
-					$numberOfCorrectAnswers+=0;
+					
+					
+					
+					
+					
+					
+					if($testOutput == $outputString){
+						//echo "question $questionId is Correct";
+						$data['is_correct']	= 1;
+						$numberOfCorrectAnswers+=1;
+					} else {
+						//echo "question $questionId is NOT Correct";
+						$data['is_correct']	= 0;
+					}
 					$response = $api->insertStudentAnswer($data);
 				} else{
 					// nothing here for now

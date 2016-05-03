@@ -40,7 +40,7 @@ if(!isLoggedIn('professor')){
 				
 				<div class="form_row">
 				<label>Desired Output:</label>
-				<textarea rows="5" cols="50" class="form_input_short" name="answer_3" id="answer_3"></textarea>
+				<input type="text" class="form_input_short" name="answer_3" id="answer_3" value=""/>
 				</div>
 
 				<div class="form_row">
