@@ -18,6 +18,7 @@ if(!isLoggedIn('professor')){
 	
 	$data = $api->getStudentById($student_id);
 	$studentArray = json_decode($data['body'],true);
+	//dd($studentArray);
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$api = Includes_Requests_Factory::create('students',array());
 		$res = $api->updateStudent($_POST);

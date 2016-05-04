@@ -99,30 +99,24 @@ if(!isLoggedIn('student')){
 					$response = $api->insertStudentAnswer($data);
 
 				} else if($question['question_type']=='short_answer') {
-					$inputString = $question['answer_1'];
-					$functionString = $question['answer_2'];
-					$outputString = $question['answer_3'];
+					$testString = "import java.util.*;import java.lang.*;import java.io.*;class test{public static void main (String[] args){" . $question['answer_1'] . "}" .  $studentAnswer . "}";
+
+					$file = fopen("test.java","w+");
+					fwrite($file,$testString);
+					fclose($file);
 					
-					$testString = $functionString . $inputString;
-					$testOutput = '';
-					eval($testString);
-					//dd("(" . $testOutput . ")   (" . $outputString . ")");
+					exec("javac test.java");
+					exec("java test",$testOutput);
+					//dd($testOutput);
 					//exit;
+
 					$data['question_type'] = 'short_answer';
-					$data['answer']= trim(strtolower($studentAnswer));
-					// Do PHP unit here
+					$data['answer']= $studentAnswer;
 					
-					
-					
-					
-					
-					
-					if($testOutput == $outputString){
-						//echo "question $questionId is Correct";
+					if($testOutput[0]==$question['answer_3']){
 						$data['is_correct']	= 1;
 						$numberOfCorrectAnswers+=1;
 					} else {
-						//echo "question $questionId is NOT Correct";
 						$data['is_correct']	= 0;
 					}
 					$response = $api->insertStudentAnswer($data);

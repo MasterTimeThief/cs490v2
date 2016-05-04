@@ -1,27 +1,29 @@
 <?php session_start();?>
 <?php require_once '../../bootstrap.php'; ?>
-<?php 
-if(!isLoggedIn('professor')){
-	$msg->error('No direct access allowed. Login Please');
-	header('Location: ' . BASE_URL . '/login.php');
-	exit;
-}
-?>
 <?php require_once '../../template/header.php'; ?>
 <p>Index</p>
 
 
 <?php 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-		$runString = $_POST['answer_2'] . $_POST['answer_1'];
-		$testOutput = '';
-		eval($runString);
+		$testString = $_POST['answer_1'] . $_POST['answer_2'] . "}";
 		
 		
 		
+		$file = fopen("test.java","w+");
+		fwrite($file,$testString);
+		fclose($file);
 		
+		exec("javac test.java");
+		exec("java Testing",$testOutput);
 		
-		dd(")" . $testOutput . "(");
+		if ($testOutput[0]==$_POST['answer_3']){
+			dd("Success");
+		}
+		else{
+			dd("failure");
+		}
+		//dd(")" . $testOutput[0] . "(     )" . $_POST['answer_3'] . "(");
 		exit;
 	}
 ?>
