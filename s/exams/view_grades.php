@@ -38,7 +38,7 @@ if(!isLoggedIn('student')){
 		    <tbody>
 		    <?php $counter = 0; ?>
 		    <?php foreach($examsArray['data'] as $id=>$item):?>
-		    	<?php //if($item['is_complete']==2):?>
+		    	<?php if($item['is_complete']==2):?>
 				<?php $class = ($counter % 2) ? 'even' : 'odd';?>
 		    	<tr class="<?=$class?>">
 		            <td><?=$item['id']?></td>
@@ -48,7 +48,7 @@ if(!isLoggedIn('student')){
 		            <td><?=($item['grade'])?></td>
 				</tr>
 				<?php $counter+=1;?>
-				<?php //endif?>
+				<?php endif?>
 		  <?php endforeach; ?>
 		        
 		    </tbody>

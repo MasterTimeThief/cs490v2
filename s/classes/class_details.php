@@ -69,7 +69,7 @@ if(!isLoggedIn('student')){
 		            </td>
 		            <td>
 		            <?php 
-		            	if(!empty($gradesArray['data']) && $gradesArray['data']['is_complete']==1){
+		            	if(!empty($gradesArray['data']) && $gradesArray['data']['is_complete']==2){
 		            		//dd($gradesArray['data']);
 		            		echo "<a href='".BASE_URL. "/s/exams/view_results.php?exam_id=".$item['id']."&class_id=".$class_id."'>View</a>";
 		            	} else if($gradesArray['data']['is_complete']==1){
