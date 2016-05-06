@@ -27,20 +27,13 @@ if(!isLoggedIn('student')){
 	foreach($examsArray['data'] as $id=>$item){
 		$grades = $questionApi->getStudentGrade($item['id'],$_SESSION['id']);
 		$gradesArray = json_decode($grades['body'],true);
-		if (!empty($gradesArray['data']) && $gradesArray['data']['is_complete']==1)
+		if (!empty($gradesArray['data']) && $item['is_available']==2)
 		{
-				
-				
-				
 			if($item['class_id']==$class_id)
 			{
 				$examTotal += $gradesArray['data']['grade'];
 				$examCount += 1;
 			}
-			
-			
-			
-			
 		}
 	}
 	

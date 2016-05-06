@@ -23,7 +23,7 @@ if(!isLoggedIn('student')){
 	
 	$exams = $api->getExamsByClassId($class_id);
 	$examsArray = json_decode($exams['body'],true);
-	//dd($examsArray);
+	dd($examsArray);
 	
 	$questionApi = Includes_Requests_Factory::create('questions',array());
 ?>
@@ -60,20 +60,20 @@ if(!isLoggedIn('student')){
 		            <td>
 		            	<?//=($item['is_available']) ? 'Open' : 'Closed' ?>
 		            	<?php 
-			            	if(!empty($gradesArray['data']) && $gradesArray['data']['is_complete']==2){
+			            	if($item['is_available']==2/*$gradesArray['data']['is_complete']==2*/){
 			            		echo $gradesArray['data']['grade'];
-			            	} else if($gradesArray['data']['is_complete']==1){
-			            		echo "<a href='#'>Not Available</a>";
+			            	} else{
+			            		echo "-";
 			            	}
 			            ?>
 		            </td>
 		            <td>
 		            <?php 
-		            	if(!empty($gradesArray['data']) && $gradesArray['data']['is_complete']==2){
+		            	if($item['is_available']==2){
 		            		//dd($gradesArray['data']);
 		            		echo "<a href='".BASE_URL. "/s/exams/view_results.php?exam_id=".$item['id']."&class_id=".$class_id."'>View</a>";
-		            	} else if($gradesArray['data']['is_complete']==1){
-		            		echo "<a href='#'>Not Available</a>";
+		            	} else{
+		            		echo "-";
 		            	}
 		            ?>
 		            </td>

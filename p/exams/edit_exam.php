@@ -56,6 +56,7 @@ if(!isLoggedIn('professor')){
 				<select class="form_select_short" name="is_available">
 					<option value="1"   <?=($examArray['data']['is_available']=='1')   ? 'selected': ''?>>Open</option>
 					<option value="0"   <?=($examArray['data']['is_available']=='0')   ? 'selected': ''?>>Closed</option>
+					<option value="2"   <?=($examArray['data']['is_available']=='2')   ? 'selected': ''?>>Release Exam</option>
 				</select>
 			</div>
 			

@@ -14,7 +14,7 @@ if(!isLoggedIn('student')){
 	$student_id = $_SESSION['id'];
 	$exams = $api->getGradedExamsByStudentId($student_id); // Todo
 	$examsArray = json_decode($exams['body'],true);
-	//dd($examsArray);
+	dd($examsArray);
 ?>
 
 <div id="right_wrap">
@@ -38,7 +38,7 @@ if(!isLoggedIn('student')){
 		    <tbody>
 		    <?php $counter = 0; ?>
 		    <?php foreach($examsArray['data'] as $id=>$item):?>
-		    	<?php if($item['is_complete']==2):?>
+		    	<?php if($item['is_available']==2):?>
 				<?php $class = ($counter % 2) ? 'even' : 'odd';?>
 		    	<tr class="<?=$class?>">
 		            <td><?=$item['id']?></td>

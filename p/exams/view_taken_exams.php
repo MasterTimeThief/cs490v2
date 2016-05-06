@@ -32,7 +32,6 @@ if(!isLoggedIn('professor')){
 		            <th>Last Name</th>
 		            <th>Exam Title</th>
 					<th>Grade</th>
-		            <th>Release Graded Exam</th>
 		        </tr>
 		    </thead>
 		        <tfoot>
@@ -75,7 +74,6 @@ if(!isLoggedIn('professor')){
 				            <td><?=$lastName?></td>
 				            <td><?=$examTitle?></td>
 				            <td><?=$gradesArray['data']['grade']?></td>
-				            <td><a href="<?=BASE_URL?>/p/exams/release_exam.php?exam_id=<?=$examItem['id']?>&student_id=<?=$studentItem['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png"/></a></td>
 						</tr>
 						<?php $counter+=1;?>
 		    		<?php endif?>

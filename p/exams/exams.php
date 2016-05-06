@@ -45,7 +45,19 @@ if(!isLoggedIn('professor')){
             <td><?=$item['code']?></td>
             <td><?=$item['class_title']?></td>
             <td><?=$item['title']?></td>
-            <td><?=($item['is_available']) ? 'Open' : 'Closed'?></td>
+            <td>
+            	<?//=($item['is_available']) ? 'Open' : 'Closed'?>
+            	<?php if($item['is_available']==0){
+            		echo 'Closed';
+            	}
+				elseif($item['is_available']==1){
+					echo 'Open';
+				}
+				elseif($item['is_available']==2){
+					echo 'Released';
+				}
+            	?>
+            </td>
             <td><a href="<?=BASE_URL?>/p/exams/edit_exam.php?exam_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/edit.png" alt="" title="" border="0" /></a></td>
             <td><a href="<?=BASE_URL?>/p/exams/delete_exam.php?exam_id=<?=$item['id']?>"><img src="<?=BASE_URL?>/assets/images/trash.gif" alt="" title="" border="0" /></a></td>
 		</tr>
